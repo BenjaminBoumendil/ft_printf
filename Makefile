@@ -114,6 +114,7 @@ SRC			=		$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
 					format_tools.c						\
+					parser.c							\
 
 OBJ = $(SRC:.c=.o)
 

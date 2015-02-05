@@ -6,18 +6,19 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:18 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 21:29:30 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/05 23:43:31 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void		free_data(t_data *data)
+static void			free_data(t_data *data)
 {
 	free(data->flag);
+	free(data->modifier);
 }
 
-static t_flag	*init_flag(void)
+static t_flag		*init_flag(void)
 {
 	t_flag		*flag;
 
@@ -26,15 +27,25 @@ static t_flag	*init_flag(void)
 	return (flag);
 }
 
-static void		init_data(t_data *data, const char *format, va_list *va)
+static t_modifier	*init_modifier(void)
+{
+	t_modifier	*modifier;
+
+	modifier = ft_memalloc(sizeof(modifier));
+	ft_bzero(modifier, sizeof(modifier));
+	return (modifier);
+}
+
+static void			init_data(t_data *data, const char *format, va_list *va)
 {
 	data->char_print = 0;
 	data->format = format;
 	data->va = va;
 	data->flag = init_flag();
+	data->modifier = init_modifier();
 }
 
-int				ft_printf(const char *restrict_format, ...)
+int					ft_printf(const char *restrict_format, ...)
 {
 	va_list		va;
 	t_data		data;
