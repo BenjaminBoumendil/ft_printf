@@ -9,7 +9,6 @@ libft/moulitest
 config
 config.sh
 config.json
-config.ini
 
 # compiled files
 test_gnl

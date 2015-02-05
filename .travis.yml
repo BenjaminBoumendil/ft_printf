@@ -3,5 +3,6 @@ compiler:
     - gcc
 
 script:
+    - sed -i  s,LOL,$(pwd), moulitest/config.ini
     - make -C moulitest ft_printf
     - ./moulitest/ft_printf_tests/ft_printf_test
