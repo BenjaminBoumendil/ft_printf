@@ -1,0 +1,1 @@
+#ft_printf [![Build Status](https://magnum.travis-ci.com/BenjaminBoumendil/ft_printf.svg?token=3NdXGhLZpkbpi5RFZ24y&branch=master)](https://magnum.travis-ci.com/BenjaminBoumendil/ft_printf)
