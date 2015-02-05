@@ -1,8 +1,10 @@
+os: osx
 language: c
-compiler:
-    - gcc
+compiler: gcc
 
-script:
+before_install:
     - sed -i  s,LOL,$(pwd), moulitest/config.ini
     - make -C moulitest ft_printf
+
+script:
     - ./moulitest/ft_printf_tests/ft_printf_test
