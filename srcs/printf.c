@@ -6,17 +6,32 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:18 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 19:15:24 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/05 21:29:30 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+static void		free_data(t_data *data)
+{
+	free(data->flag);
+}
+
+static t_flag	*init_flag(void)
+{
+	t_flag		*flag;
+
+	flag = ft_memalloc(sizeof(flag));
+	ft_bzero(flag, sizeof(flag));
+	return (flag);
+}
 
 static void		init_data(t_data *data, const char *format, va_list *va)
 {
 	data->char_print = 0;
 	data->format = format;
 	data->va = va;
+	data->flag = init_flag();
 }
 
 int				ft_printf(const char *restrict_format, ...)
@@ -27,6 +42,7 @@ int				ft_printf(const char *restrict_format, ...)
 	va_start(va, restrict_format);
 	init_data(&data, restrict_format, &va);
 	read_format(&data);
+	free_data(&data);
 	va_end(va);
 	return (data.char_print);
 }

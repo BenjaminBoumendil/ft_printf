@@ -1,0 +1,7 @@
+language: c
+compiler:
+    - gcc
+
+script:
+    - make -C moulitest ft_printf
+    - ./moulitest/ft_printf_tests/ft_printf_test

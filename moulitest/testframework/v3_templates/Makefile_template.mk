@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
+#    By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/25 18:15:17 by yyang            ###   ########.fr        #
+#    Updated: 2015/02/05 21:51:36 by bboumend         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                                                        #
@@ -72,7 +72,6 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 endif
 	make -k -C $(FRAMEWORK_PATH)
 	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
-	./$(NAME)
 
 clean:
 	rm -f $(OBJECTS)
