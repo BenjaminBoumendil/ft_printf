@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 20:07:59 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 20:37:22 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,17 @@ int		parse_flags(t_data *data)
 
 int		parse_width(t_data *data)
 {
-	char	*width;
-	size_t	i;
-	size_t	c;
-
-	i = 0;
-	c = 0;
-	while (ft_isdigit(data->format[i]))
-		i++;
-	width = ft_memalloc(i);
-	while (c < i && data->format)
-	{
-		width[c] = *data->format;
-		c++;
-		data->format++;
-	}
-	data->min_width = ft_atoi(width);
-	free(width);
+	data->min_width = get_integer(data);
 	return (0);
 }
 
 int		parse_precision(t_data *data)
 {
-	(void)data;
+	if (*data->format == '.')
+	{
+		data->format++;
+		data->precision = get_integer(data);
+	}
 	return (0);
 }
 
