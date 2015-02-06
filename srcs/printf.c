@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:18 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 23:43:31 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 17:29:46 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_modifier	*init_modifier(void)
 
 static void			init_data(t_data *data, const char *format, va_list *va)
 {
-	data->char_print = 0;
+	ft_bzero(data, sizeof(data));
 	data->format = format;
 	data->va = va;
 	data->flag = init_flag();

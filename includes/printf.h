@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 23:45:57 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 17:31:22 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_data
 	size_t		min_width;
 	size_t		precision;
 }				t_data;
+
 int				ft_printf(const char *restrict_format, ...);
 
 /*
