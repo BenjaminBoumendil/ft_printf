@@ -110,16 +110,22 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
 
-all: $(NAME)
+STAR		=		**********
+
+all: 
+	@echo "\n\033[36m $(STAR) [Compiling: $(NAME)] $(STAR) \033[0m"
+	@$(MAKE) $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $@ $^
 	@ranlib $@
+	@echo "\033[32m $(STAR) [Done: $(NAME)] $(STAR) \033[0m"
 
 %.o: $(SRC_DIR)/%.c
 	@gcc -c $(CFLAGS) $^
 
 clean:
+	@echo "\n\033[35m $(STAR) [Cleaning: $(NAME)] $(STAR) \033[0m"
 	@rm -f $(OBJ)
 
 fclean: clean
