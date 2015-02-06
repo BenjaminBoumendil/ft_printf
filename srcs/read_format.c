@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:08:46 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 23:50:17 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 17:34:03 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 static void			init_parse(t_data *data)
 {
+	size_t			i;
+	void (*f[])(t_data *data) = {
+		parse_flags,
+		parse_width,
+		parse_precision,
+		parse_modifier,
+		parse_token};
+
+	i = 0;
 	data->format++;
-	parse_flags(data);
-	parse_width(data);
-	parse_precision(data);
-	parse_modifier(data);
-	parse_token(data);
+	while (i < sizeof(f) / sizeof(*f))
+	{
+		f[i++](data);
+	}
 }
 
 void				read_format(t_data *data)
