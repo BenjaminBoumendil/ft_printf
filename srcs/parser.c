@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:11:39 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 17:51:16 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void		parse_token(t_data *data)
 {
 	size_t			c;
-	const t_token	token[] = {
-	{"s", ft_s},
-	{"d", ft_d},
+	const t_token	token[] =
+
+	{					\
+	{"s", ft_s},		\
+	{"d", ft_d},		\
 	{"c", ft_c}};
 	c = 0;
 	while (c < sizeof(token) / sizeof(t_token))

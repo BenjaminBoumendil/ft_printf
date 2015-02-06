@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:33:27 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 18:00:13 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ void			ft_s(t_data *data)
 	char	*str;
 
 	str = va_arg(*data->va, char *);
-	PRINT_CHAR(ft_strlen(str));
-	ft_putstr(str);
+	if (str)
+	{
+		PRINT_CHAR(ft_strlen(str));
+		ft_putstr(str);
+	}
+	else
+		ft_putstr("(null)");
 }
 
 void			ft_d(t_data *data)
