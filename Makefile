@@ -148,7 +148,9 @@ fcleanlib:
 	@(cd $(LIB_DIR) && $(MAKE) fclean)
 
 moulitest: fclean fcleanlib
+	sed -i ''  s,LOL,`pwd`, moulitest/config.ini
 	@$(MAKE) -C moulitest ft_printf
+	sed -i ''  s,`pwd`,LOL, moulitest/config.ini
 	./moulitest/ft_printf_tests/ft_printf_test
 
 test: cclean

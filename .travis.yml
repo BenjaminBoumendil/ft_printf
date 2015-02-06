@@ -3,7 +3,7 @@ language: c
 compiler: gcc
 
 before_install:
-    - sed -i  s,LOL,$(pwd), moulitest/config.ini
+    - sed -i '' s,LOL,$(pwd), moulitest/config.ini
     - make -C moulitest ft_printf
 
 script:
