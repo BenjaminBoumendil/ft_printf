@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:22:53 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 18:00:44 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_data
 	size_t		min_width;
 	size_t		precision;
 }				t_data;
+
 int				ft_printf(const char *restrict_format, ...);
 
 /*

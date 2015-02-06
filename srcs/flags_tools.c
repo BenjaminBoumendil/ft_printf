@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flags_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/05 17:31:49 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:29:15 by ochase           ###   ########.fr       */
+/*   Created: 2015/02/06 17:20:00 by ochase            #+#    #+#             */
+/*   Updated: 2015/02/06 17:41:44 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../includes/printf.h"
+#include "printf.h"
 
-int			main(void)
+void		ft_sharp(t_data *data)
 {
-	// ft_putstr("MY PRINTF : \n");
-	ft_printf("%+-#0s\n", "test");
-	// ft_printf("%s\n%d\n%c\n", "test", 42, 48);
+	(void)data;
+	ft_putstr("sharp ");
+}
 
-	// ft_putstr("\nREAL PRINTF : \n");
-	// printf("TEST\n");
-	// printf("%s\n%d\n%c\n", "test", 42, 48);
-	// printf("%+#e%d", 42.25, 42);
+void		ft_zero(t_data *data)
+{
+	(void)data;
+	ft_putstr("zero " );
+}
 
-	return (0);
+void		ft_minus(t_data *data)
+{
+	(void)data;
+	ft_putstr("minus ");
+}
+
+void		ft_plus(t_data *data)
+{
+	(void)data;
+	ft_putstr("plus ");
 }
