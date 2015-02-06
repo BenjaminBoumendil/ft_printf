@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 17:31:49 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 18:07:10 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 22:20:03 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@
 int			main(void)
 {
 	ft_putstr("MY PRINTF : \n");
-	ft_printf("TEST\n");
-	ft_printf("%s\n%d\n%c\n", "test", 42, 48);
-	ft_printf("%s", NULL);
+	ft_printf("%d", 42);
 
 	ft_putstr("\nREAL PRINTF : \n");
-	// printf("TEST\n");
-	// printf("%s\n%d\n%c\n", "test", 42, 48);
-	// printf("%s", 0);
+	printf("%d", 42);
 
 	return (0);
 }
