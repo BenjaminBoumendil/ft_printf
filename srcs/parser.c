@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 19:59:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 20:07:59 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,26 @@
 int		parse_flags(t_data *data)
 {
 	size_t			c;
-	BOOL			found;
-	const t_flags	flags[] = {
-	{'#', ft_sharp},
-	{'0', ft_zero},
-	{'-', ft_minus},
+	const t_flags	flags[] =
+
+	{ \
+	{'#', ft_sharp}, \
+	{'0', ft_zero},  \
+	{'-', ft_minus}, \
 	{'+', ft_plus}};
 	while (data->format)
 	{
 		c = 0;
-		found = false;
-		while (c < sizeof(flags) / sizeof(t_flags))
+		while (c < (sizeof(flags) / sizeof(t_flags)))
 		{
 			if (flags[c].c == *data->format)
 			{
-				found = true;
 				flags[c].f(data);
 				break ;
 			}
 			c++;
 		}
-		if (!found)
+		if (c >= (sizeof(flags) / sizeof(t_flags)))
 			break ;
 		data->format++;
 	}
@@ -79,9 +78,11 @@ int		parse_modifier(t_data *data)
 int		parse_token(t_data *data)
 {
 	size_t			c;
-	const t_token	token[] = {
-	{"s", ft_s},
-	{"d", ft_d},
+	const t_token	token[] =
+
+	{ \
+	{"s", ft_s}, \
+	{"d", ft_d}, \
 	{"c", ft_c}};
 	c = 0;
 	while (c < sizeof(token) / sizeof(t_token))
