@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 18:05:45 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 19:59:13 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void		parse_flags(t_data *data)
+int		parse_flags(t_data *data)
 {
 	size_t			c;
 	BOOL			found;
-	const t_token	flags[] = {
-	{"#", ft_sharp},
-	{"0", ft_zero},
-	{"-", ft_minus},
-	{"+", ft_plus}};
+	const t_flags	flags[] = {
+	{'#', ft_sharp},
+	{'0', ft_zero},
+	{'-', ft_minus},
+	{'+', ft_plus}};
 	while (data->format)
 	{
 		c = 0;
 		found = false;
-		while (c < sizeof(flags) / sizeof(t_token))
+		while (c < sizeof(flags) / sizeof(t_flags))
 		{
-			if (ft_strchr(flags[c].str, *data->format))
+			if (flags[c].c == *data->format)
 			{
 				found = true;
 				flags[c].f(data);
@@ -39,28 +39,44 @@ void		parse_flags(t_data *data)
 			break ;
 		data->format++;
 	}
-	return ;
+	return (0);
 }
 
-void		parse_width(t_data *data)
+int		parse_width(t_data *data)
+{
+	char	*width;
+	size_t	i;
+	size_t	c;
+
+	i = 0;
+	c = 0;
+	while (ft_isdigit(data->format[i]))
+		i++;
+	width = ft_memalloc(i);
+	while (c < i && data->format)
+	{
+		width[c] = *data->format;
+		c++;
+		data->format++;
+	}
+	data->min_width = ft_atoi(width);
+	free(width);
+	return (0);
+}
+
+int		parse_precision(t_data *data)
 {
 	(void)data;
-	return ;
+	return (0);
 }
 
-void		parse_precision(t_data *data)
+int		parse_modifier(t_data *data)
 {
 	(void)data;
-	return ;
+	return (0);
 }
 
-void		parse_modifier(t_data *data)
-{
-	(void)data;
-	return ;
-}
-
-void		parse_token(t_data *data)
+int		parse_token(t_data *data)
 {
 	size_t			c;
 	const t_token	token[] = {
@@ -77,4 +93,5 @@ void		parse_token(t_data *data)
 		}
 		c++;
 	}
+	return (0);
 }

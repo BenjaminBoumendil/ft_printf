@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_format.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:08:46 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:51:58 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 18:54:37 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void			init_parse(t_data *data)
 {
 	size_t			i;
-	void (*f[])(t_data *data) =
+	int (*f[])(t_data *data) =
 
 	{						\
 		parse_flags,		\

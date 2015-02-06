@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 18:00:44 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 20:00:17 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,15 @@ void			ft_d(t_data *data);
 void			ft_c(t_data *data);
 
 /*
+** Parser flags
+*/
+typedef struct	s_flags
+{
+	char		c;
+	void		(*f)(t_data *data);
+}				t_flags;
+
+/*
 ** Flags tools
 */
 void			ft_sharp(t_data *data);
@@ -95,10 +104,10 @@ void			ft_plus(t_data *data);
 /*
 ** Parser
 */
-void			parse_flags(t_data *data);
-void			parse_width(t_data *data);
-void			parse_precision(t_data *data);
-void			parse_modifier(t_data *data);
-void			parse_token(t_data *data);
+int				parse_flags(t_data *data);
+int				parse_width(t_data *data);
+int				parse_precision(t_data *data);
+int				parse_modifier(t_data *data);
+int				parse_token(t_data *data);
 
 #endif
