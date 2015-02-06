@@ -147,15 +147,16 @@ clean:
 fcleanlib:
 	@(cd $(LIB_DIR) && $(MAKE) fclean)
 
-moulitest: cclean
+moulitest: fclean fcleanlib
 	@$(MAKE) -C moulitest ft_printf
 	./moulitest/ft_printf_tests/ft_printf_test
 
 test: cclean
 	@$(MAKE) -C mytest
-	./mytest/printf
+	./mytest/my_test
 
 cclean: fclean fcleanlib
+	@$(MAKE) -C mytest fclean
 
 fclean: clean
 	@rm -f $(NAME)
