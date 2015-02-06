@@ -113,16 +113,16 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^
-	ranlib $@
+	@ar rc $@ $^
+	@ranlib $@
 
 %.o: $(SRC_DIR)/%.c
-	gcc -c $(CFLAGS) $^
+	@gcc -c $(CFLAGS) $^
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
