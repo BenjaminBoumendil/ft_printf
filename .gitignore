@@ -1,4 +1,3 @@
 *.o
 *.a
 printf
-config.ini
