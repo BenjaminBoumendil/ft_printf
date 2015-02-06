@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 23:45:57 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 17:22:53 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ void			read_format(t_data *data);
 void			ft_s(t_data *data);
 void			ft_d(t_data *data);
 void			ft_c(t_data *data);
+
+/*
+** Flags tools
+*/
+void			ft_sharp(t_data *data);
+void			ft_zero(t_data *data);
+void			ft_minus(t_data *data);
+void			ft_plus(t_data *data);
 
 /*
 ** Parser
