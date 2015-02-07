@@ -26,7 +26,7 @@ OBJ			=		$(SRC:.c=.o)
 
 FLAG_LINK	=		-L$(LIB_DIR) -lftprintf
 
-FLAG_COMP	=		-Wall -Wextra -Werror -I$(INCLUDE_DIR)
+FLAG_COMP	=		-Wall -Wextra -Werror -Wno-format
 
 STAR		=		**********
 
@@ -42,7 +42,7 @@ $(NAME): $(OBJ)
 	@gcc -o $@ $^ $(FLAG_LINK)
 	@echo "\033[32m $(STAR) [Done: $(NAME)] $(STAR) \033[0m"
 
-%.o: $(SRC_DIR)/%.c
+%.o: %.c
 	@gcc -c $(FLAG_COMP) $^
 
 clean:
