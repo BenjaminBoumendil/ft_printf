@@ -118,6 +118,8 @@ SRC				=	$(LIB_SRC)							\
 					flags_tools.c						\
 					parser.c							\
 					parser_tools.c						\
+					modifier_tools.c					\
+					modifier_tools_bis.c				\
 
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
