@@ -158,8 +158,13 @@ test: cclean
 	@$(MAKE) -C mytest
 	./mytest/my_test
 
+tests: cclean
+	@$(MAKE) -C tests
+	./tests/tests
+
 cclean: fclean fcleanlib
 	@$(MAKE) -C mytest fclean
+	@$(MAKE) -C tests fclean
 
 fclean: clean
 	@rm -f $(NAME)
