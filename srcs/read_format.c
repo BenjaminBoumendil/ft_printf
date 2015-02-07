@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:08:46 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 20:21:11 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 20:44:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define F5 parse_token};
 #define F F0 F1 F2 F3 F4 F5
 
-static void			init_parse(t_data *data)
+static int			init_parse(t_data *data)
 {
 	size_t	i;
 
@@ -29,8 +29,10 @@ static void			init_parse(t_data *data)
 	data->format++;
 	while (i < sizeof(f) / sizeof(*f))
 	{
-		f[i++](data);
+		if (f[i++](data))
+			return (1);
 	}
+	return (0);
 }
 
 void				read_format(t_data *data)
@@ -38,7 +40,10 @@ void				read_format(t_data *data)
 	while (*data->format)
 	{
 		if (*data->format == '%')
-			init_parse(data);
+		{
+			if (init_parse(data))
+				return ;
+		}
 		else
 		{
 			PRINT_CHAR(1);

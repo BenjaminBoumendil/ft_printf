@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 21:00:00 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/07 00:00:34 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		parse_token(t_data *data)
 		{
 			data->format += ft_strlen(token[c].str);
 			token[c].f(data);
+			break ;
 		}
 		c++;
 	}
