@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 20:36:26 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/07 18:13:22 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,16 @@ void			ft_sharp(t_data *data);
 void			ft_zero(t_data *data);
 void			ft_minus(t_data *data);
 void			ft_plus(t_data *data);
+
+/*
+** Modifier tools
+*/
+
+void			ft_hh(t_data *data);
+void			ft_h(t_data *data);
+void			ft_ll(t_data *data);
+void			ft_l(t_data *data);
+void			ft_j(t_data *data);
+void			ft_z(t_data *data);
 
 #endif
