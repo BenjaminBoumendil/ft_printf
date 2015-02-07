@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/05 23:24:25 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/07 18:28:59 by ochase           ###   ########.fr       */
+/*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
+/*   Updated: 2015/02/07 23:12:24 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,24 +85,6 @@ int		parse_modifier(t_data *data)
 		if (c == (sizeof(mod) / sizeof(t_token)))
 			break ;
 	}
-	ft_putstr("hh: ");
-	ft_putnbr(data->modifier->hh);
-	ft_putchar('\n');
-	ft_putstr("h: ");
-	ft_putnbr(data->modifier->h);
-	ft_putchar('\n');
-	ft_putstr("ll: ");
-	ft_putnbr(data->modifier->ll);
-	ft_putchar('\n');
-	ft_putstr("l: ");
-	ft_putnbr(data->modifier->l);
-	ft_putchar('\n');
-	ft_putstr("j: ");
-	ft_putnbr(data->modifier->j);
-	ft_putchar('\n');
-	ft_putstr("z: ");
-	ft_putnbr(data->modifier->z);
-	ft_putchar('\n');
 	return (0);
 }
 
