@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/08 18:23:48 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/08 21:44:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ int		parse_flags(t_data *data)
 int		parse_width(t_data *data)
 {
 	data->min_width = get_integer(data);
+	ft_putstr("min_width: ");
+	ft_putnbr(data->min_width);
+	PCN;
 	return (0);
 }
 
