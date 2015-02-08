@@ -115,11 +115,8 @@ SRC				=	$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
 					format_tools.c						\
-					flags_tools.c						\
 					parser.c							\
 					parser_tools.c						\
-					modifier_tools.c					\
-					modifier_tools_bis.c				\
 
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

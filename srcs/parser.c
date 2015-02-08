@@ -6,30 +6,28 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/08 21:44:43 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/08 22:33:24 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		parse_flags(t_data *data)
+void		parse_flags(t_data *data)
 {
 	size_t			c;
 	const t_flags	flags[] =
 
-	{                  \
-	{ '#', ft_sharp }, \
-	{ '0', ft_zero },  \
-	{ '-', ft_minus }, \
-	{ '+', ft_plus }};
+	{                                                         \
+	{ "#", &data->flag->sharp }, { "0", &data->flag->zero },  \
+	{ "-", &data->flag->minus }, { "+", &data->flag->plus }};
 	while (*data->format)
 	{
 		c = 0;
 		while (c < (sizeof(flags) / sizeof(t_flags)))
 		{
-			if (flags[c].c == *data->format)
+			if (*flags[c].str == *data->format)
 			{
-				flags[c].f(data);
+				*(flags[c].flag) = true;
 				break ;
 			}
 			c++;
@@ -38,70 +36,60 @@ int		parse_flags(t_data *data)
 			break ;
 		data->format++;
 	}
-	return (0);
 }
 
-int		parse_width(t_data *data)
+void		parse_width(t_data *data)
 {
 	data->min_width = get_integer(data);
-	ft_putstr("min_width: ");
-	ft_putnbr(data->min_width);
-	PCN;
-	return (0);
 }
 
-int		parse_precision(t_data *data)
+void		parse_precision(t_data *data)
 {
 	if (*data->format == '.')
 	{
 		data->format++;
 		data->precision = get_integer(data);
 	}
-	return (0);
 }
 
-int		parse_modifier(t_data *data)
+void		parse_modifier(t_data *data)
 {
 	size_t			c;
-	const t_token	mod[] =
+	const t_flags	mod[] =
 
-	{                                 \
-	{ "hh", ft_hh }, { "h", ft_h },   \
-	{ "ll", ft_ll }, { "l", ft_l },   \
-	{ "j", ft_j },                    \
-	{ "z", ft_z }};
+	{                                                             \
+	{ "hh", &data->modifier->hh }, { "h", &data->modifier->h },   \
+	{ "ll", &data->modifier->ll }, { "l", &data->modifier->l },   \
+	{ "j", &data->modifier->j }, { "z", &data->modifier->z }};
 	while (*data->format)
 	{
 		c = 0;
-		while (c < (sizeof(mod) / sizeof(t_token)))
+		while (c < (sizeof(mod) / sizeof(t_flags)))
 		{
 			if (!ft_strncmp(mod[c].str, data->format, ft_strlen(mod[c].str)))
 			{
 				data->format += ft_strlen(mod[c].str);
-				mod[c].f(data);
+				*(mod[c].flag) = true;
 				break ;
 			}
 			c++;
 		}
-		if (c == (sizeof(mod) / sizeof(t_token)))
+		if (c == (sizeof(mod) / sizeof(t_flags)))
 			break ;
 	}
-	return (0);
 }
 
-int		parse_token(t_data *data)
+void		parse_token(t_data *data)
 {
 	size_t			c;
-	const t_flags	token[] =
+	const t_token	token[] =
 
 	{              \
-	{ 's', ft_s }, \
-	{ 'd', ft_d }, \
-	{ 'c', ft_c }};
+	{ 's', opt_s }, { 'd', opt_d }, { 'c', opt_c }};
 	while (*data->format)
 	{
 		c = 0;
-		while (c < (sizeof(token) / sizeof(t_flags)))
+		while (c < (sizeof(token) / sizeof(t_token)))
 		{
 			if (token[c].c == *data->format)
 			{
@@ -111,8 +99,7 @@ int		parse_token(t_data *data)
 			}
 			c++;
 		}
-		if (c == (sizeof(token) / sizeof(t_flags)))
+		if (c == (sizeof(token) / sizeof(t_token)))
 			data->format++;
 	}
-	return (0);
 }
