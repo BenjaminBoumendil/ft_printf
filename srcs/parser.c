@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/07 23:25:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/08 18:23:48 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,10 @@ int		parse_modifier(t_data *data)
 	size_t			c;
 	const t_token	mod[] =
 
-	{                \
-	{ "hh", ft_hh }, \
-	{ "h", ft_h },   \
-	{ "ll", ft_ll }, \
-	{ "l", ft_l },   \
-	{ "j", ft_j },   \
+	{                                 \
+	{ "hh", ft_hh }, { "h", ft_h },   \
+	{ "ll", ft_ll }, { "l", ft_l },   \
+	{ "j", ft_j },                    \
 	{ "z", ft_z }};
 	while (*data->format)
 	{
