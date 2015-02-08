@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 22:26:08 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/08 22:55:09 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void			opt_s(t_data *data)
 		ft_putstr(str);
 	}
 	else
+	{
+		COUNT_CHAR(6);
 		ft_putstr("(null)");
+	}
 }
 
 void			opt_d(t_data *data)

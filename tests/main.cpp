@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 22:38:56 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/08 23:02:56 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void assert(bool passed, const std::string & description)
 template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
-    char buff[BUFF_MAX_SIZE];
+    char buff[BUFF_MAX_SIZE] = {0};
     int fds[2];
     int saved_stdout;
 
@@ -74,7 +74,7 @@ static bool test_one(const char * format, Args... args)
 
 int         main(void)
 {
-    assert(test_one("test%s", "lol"), "\"test%s\", \"lol\"");
+    assert(test_one("test%s", 0), "(\"test%s\", \"lol\")");
 
     return (0);
 }
