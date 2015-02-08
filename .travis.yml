@@ -3,8 +3,7 @@ language: c
 compiler: gcc
 
 before_install:
-    - sudo apt-get install zsh
-    - sudo chsh -s $(which zsh)
+    - zsh
     - Make moulitest
 
 script:
