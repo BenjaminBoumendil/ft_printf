@@ -142,7 +142,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/$(LIB_SRC_DIR)/%.c
 
 clean:
 	@rm -f $(OBJ)
-	@rm -df $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fcleanlib:
 	@(cd $(LIB_DIR) && $(MAKE) fclean)
