@@ -3,8 +3,9 @@ language: c
 compiler: gcc
 
 before_install:
-    - sed -i s,LOL,$(pwd), moulitest/config.ini
-    - make -C moulitest ft_printf
+    - "sudo apt-get install zsh"
+    - "sudo chsh -s $(which zsh)"
+    - Make moulitest
 
 script:
     - ./moulitest/ft_printf_tests/ft_printf_test
