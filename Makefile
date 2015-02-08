@@ -154,15 +154,10 @@ moulitest: fclean fcleanlib
 	./moulitest/ft_printf_tests/ft_printf_test
 
 test: cclean
-	@$(MAKE) -C mytest
-	./mytest/my_test
-
-tests: cclean
 	@$(MAKE) -C tests
 	./tests/tests
 
 cclean: fclean fcleanlib
-	@$(MAKE) -C mytest fclean
 	@$(MAKE) -C tests fclean
 
 fclean: clean
