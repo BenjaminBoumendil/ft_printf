@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 17:31:49 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 22:20:03 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/07 15:42:03 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			main(void)
 	ft_printf("%d", 42);
 
 	ft_putstr("\nREAL PRINTF : \n");
-	printf("%d", 42);
+	printf("%#s", "42");
 
 	return (0);
 }
