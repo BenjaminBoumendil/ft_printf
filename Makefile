@@ -115,11 +115,8 @@ SRC				=	$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
 					format_tools.c						\
-					flags_tools.c						\
 					parser.c							\
 					parser_tools.c						\
-					modifier_tools.c					\
-					modifier_tools_bis.c				\
 
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
@@ -157,15 +154,10 @@ moulitest: fclean fcleanlib
 	./moulitest/ft_printf_tests/ft_printf_test
 
 test: cclean
-	@$(MAKE) -C mytest
-	./mytest/my_test
-
-tests: cclean
 	@$(MAKE) -C tests
 	./tests/tests
 
 cclean: fclean fcleanlib
-	@$(MAKE) -C mytest fclean
 	@$(MAKE) -C tests fclean
 
 fclean: clean

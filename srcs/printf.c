@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:18 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 17:29:46 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/08 21:40:11 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_modifier	*init_modifier(void)
 
 static void			init_data(t_data *data, const char *format, va_list *va)
 {
-	ft_bzero(data, sizeof(data));
+	ft_bzero(data, sizeof(t_data));
 	data->format = format;
 	data->va = va;
 	data->flag = init_flag();
