@@ -3,8 +3,8 @@ language: c
 compiler: gcc
 
 before_install:
-    - zsh
-    - Make moulitest
+    - sed -i s,LOL,$(pwd), moulitest/config.ini
+    - make -C moulitest ft_printf
 
 script:
     - ./moulitest/ft_printf_tests/ft_printf_test
