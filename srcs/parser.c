@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/08 22:33:24 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 13:04:27 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void		parse_flags(t_data *data)
 
 	{                                                         \
 	{ "#", &data->flag->sharp }, { "0", &data->flag->zero },  \
-	{ "-", &data->flag->minus }, { "+", &data->flag->plus }};
+	{ "-", &data->flag->minus }, { "+", &data->flag->plus },  \
+	{ " ", &data->flag->space }};
 	while (*data->format)
 	{
 		c = 0;
