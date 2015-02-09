@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 23:02:56 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 13:57:38 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ static bool test_one(const char * format, Args... args)
 int         main(void)
 {
     assert(test_one("test%s", 0), "(\"test%s\", \"lol\")");
+    assert(test_one("%010s", "test"), "(\"%010s\", \"test\")");
+    assert(test_one("%10s", "test"), "(\"%10s\", \"test\")");
+    assert(test_one("%-010s", "test"), "(\"%-010s\", \"test\")");
+    assert(test_one("%-10s", "test"), "(\"%-10s\", \"test\")");
 
     return (0);
 }

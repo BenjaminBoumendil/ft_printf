@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 13:44:00 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 13:56:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,9 @@ void			opt_s(t_data *data)
 
 	str = va_arg(*data->va, char *);
 	if (str)
-	{
-		COUNT_CHAR(ft_strlen(str));
 		display(data, str);
-	}
 	else
-	{
-		COUNT_CHAR(6);
 		display(data, "(null)");
-	}
 }
 
 void			opt_S(t_data *data)
