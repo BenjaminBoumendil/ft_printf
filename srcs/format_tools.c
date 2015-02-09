@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 13:44:00 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 20:56:07 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,9 @@ void			opt_s(t_data *data)
 
 	str = va_arg(*data->va, char *);
 	if (str)
-	{
-		COUNT_CHAR(ft_strlen(str));
 		display(data, str);
-	}
 	else
-	{
-		COUNT_CHAR(6);
 		display(data, "(null)");
-	}
 }
 
 void			opt_S(t_data *data)
@@ -47,18 +41,30 @@ void			opt_S(t_data *data)
 
 void			opt_d(t_data *data)
 {
-	COUNT_CHAR(1);
-	ft_putnbr(va_arg(*data->va, int));
+	char	*str;
+
+	str = itoa(va_arg(*data->va, int));
+	display(str);
+	free(str);
 }
 
 void			opt_D(t_data *data)
 {
+	// char		*str;
+	long int	i;
+
 	COUNT_CHAR(1);
-	ft_putnbr(va_arg(*data->va, int));
+	i = va_arg(*data->va, long int);
+	ft_putnbr(i);
+	// str = ft_itoa(i);
+	// ft_putstr(str);
 }
 
 void			opt_c(t_data *data)
 {
-	COUNT_CHAR(1);
-	ft_putchar(va_arg(*data->va, int));
+	char	*str;
+
+	str = itoa(va_arg(*data->va, int));
+	display(str);
+	free(str);
 }
