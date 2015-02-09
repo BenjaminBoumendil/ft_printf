@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 20:58:16 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:00:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void			opt_d(t_data *data)
 {
 	char	*str;
 
-	str = itoa(va_arg(*data->va, int));
-	display(str);
+	str = ft_itoa(va_arg(*data->va, int));
+	display(data, str);
 	free(str);
 }
 
@@ -64,7 +64,7 @@ void			opt_c(t_data *data)
 {
 	char	*str;
 
-	str = itoa(va_arg(*data->va, int));
-	display(str);
+	str = ft_itoa(va_arg(*data->va, int));
+	display(data, str);
 	free(str);
 }

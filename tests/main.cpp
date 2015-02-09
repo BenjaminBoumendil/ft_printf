@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 19:26:37 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 20:59:16 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int         main(void)
     assert(test_one("%-010s", "test"), "(\"%-010s\", \"test\")");
     assert(test_one("%-10s", "test"), "(\"%-10s\", \"test\")");
     assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
+
+    assert(test_one("%d", 10), "(\"%d\", 10)");
 
     return (0);
 }
