@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 13:42:18 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 23:47:27 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 ** Defines
 */
 # define COUNT_CHAR(v) data->char_print += v
-# define BOOL t_bool
 
 typedef enum	e_bool
 {
@@ -28,32 +27,36 @@ typedef enum	e_bool
 	true
 }				t_bool;
 
+# define BOOL typedef t_bool bool
+
+BOOL;
+
 /*
 ** Flags
 */
 typedef struct	s_flag
 {
-	BOOL		plus;
-	BOOL		minus;
-	BOOL		sharp;
-	BOOL		zero;
-	BOOL		space;
+	bool		plus;
+	bool		minus;
+	bool		sharp;
+	bool		zero;
+	bool		space;
 }				t_flag;
 
 typedef struct	s_modifier
 {
-	BOOL		hh;
-	BOOL		h;
-	BOOL		ll;
-	BOOL		l;
-	BOOL		j;
-	BOOL		z;
+	bool		hh;
+	bool		h;
+	bool		ll;
+	bool		l;
+	bool		j;
+	bool		z;
 }				t_modifier;
 
 typedef struct	s_flags
 {
 	char		*str;
-	BOOL		*flag;
+	bool		*flag;
 }				t_flags;
 
 /*
@@ -68,6 +71,7 @@ typedef struct	s_data
 	t_modifier	*modifier;
 	size_t		min_width;
 	size_t		precision;
+	char		opt;
 }				t_data;
 
 int				ft_printf(const char *restrict_format, ...);
@@ -98,6 +102,7 @@ void			opt_S(t_data *data);
 void			opt_d(t_data *data);
 void			opt_D(t_data *data);
 void			opt_c(t_data *data);
+void			opt_o(t_data *data);
 
 /*
 ** Display

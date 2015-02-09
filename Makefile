@@ -115,6 +115,7 @@ SRC				=	$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
 					format_tools.c						\
+					format_tools_ioOuU.c				\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\

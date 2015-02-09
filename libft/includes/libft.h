@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2014/04/23 19:43:25 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 22:11:26 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ size_t			ft_strlcat(char *dest, const char *src, size_t n);
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 int				ft_atoi(const char *str);
+int				ft_atoi_base(const char *str, const char *base);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 int				ft_isalpha(int c);

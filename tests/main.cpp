@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 20:59:16 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 22:20:04 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static bool test_one(const char * format, Args... args)
     auto printf_ret = printf_call(printf, format, args...);
     return printf_ret == ft_printf_ret;
 }
-
+#include <climits>
 int         main(void)
 {
     assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
@@ -82,6 +82,16 @@ int         main(void)
     assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
 
     assert(test_one("%d", 10), "(\"%d\", 10)");
+
+    assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
+    assert(test_one("%c", 49), "(\"%c\", 49)");
+    assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
+
+    assert(test_one("%i", 10), "(\"%i\", 10)");
+    assert(test_one("%i", 42949672955), "(\"%i\", 4294967295)");
+
+    assert(test_one("%o", 10), "(\"%o\", 10)");
+    assert(test_one("%0535.2o", INT_MAX), "(\"%-53.2o\", INT_MAX)");
 
     return (0);
 }

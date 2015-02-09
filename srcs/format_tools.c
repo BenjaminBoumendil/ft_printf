@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 21:00:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:17:40 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void			opt_D(t_data *data)
 
 void			opt_c(t_data *data)
 {
-	char	*str;
+	char	str[2];
 
-	str = ft_itoa(va_arg(*data->va, int));
+
+	str[0] = (char)va_arg(*data->va, int);
+	str[1] = '\0';
 	display(data, str);
-	free(str);
 }
