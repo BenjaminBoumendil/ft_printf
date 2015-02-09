@@ -59,6 +59,7 @@ SRC =	ft_memset.c				\
 		ft_striter.c			\
 		ft_striteri.c			\
 		ft_itoa.c				\
+		ft_ltoa.c				\
 		ft_strmap.c				\
 		ft_strmapi.c			\
 		ft_strequ.c				\
@@ -112,7 +113,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
 
 STAR		=		**********
 
-all: 
+all:
 	@echo "\n\033[36m $(STAR) [Compiling: $(NAME)] $(STAR) \033[0m"
 	@$(MAKE) $(NAME)
 

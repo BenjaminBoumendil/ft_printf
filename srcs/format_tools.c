@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 21:00:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:48:27 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,13 @@ void			opt_d(t_data *data)
 
 void			opt_D(t_data *data)
 {
-	// char		*str;
+	char		*str;
 	long int	i;
 
-	COUNT_CHAR(1);
-	i = va_arg(*data->va, long int);
-	ft_putnbr(i);
-	// str = ft_itoa(i);
-	// ft_putstr(str);
+	i = va_arg(*data->va, long);
+	str = ft_ltoa(i);
+	display(data, str);
+	free(str);
 }
 
 void			opt_c(t_data *data)
