@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 21:18:11 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 21:58:51 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static auto printf_call(const F & f, const char * format, Args... args)
     close(fds[1]);
     int ret = f(format, args...);
     fflush(stdout);
+    fcntl(fds[0], F_SETFL, O_NONBLOCK);
     read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
     std::cout << "BUFF : " << buff << std::endl;
@@ -83,6 +84,9 @@ int         main(void)
 
     assert(test_one("%d", 10), "(\"%d\", 10)");
     assert(test_one("%D", 21474836470), "(\"%D\", 2 147 483 647)");
+
+    assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
+    assert(test_one("%S", "test"), "(\"%S\", \"test\")");
 
     return (0);
 }
