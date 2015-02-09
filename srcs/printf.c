@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:18 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 21:40:11 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 14:05:55 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static t_flag		*init_flag(void)
 {
 	t_flag		*flag;
 
-	flag = ft_memalloc(sizeof(flag));
-	ft_bzero(flag, sizeof(flag));
+	flag = ft_memalloc(sizeof(t_flag));
 	return (flag);
 }
 
@@ -31,8 +30,7 @@ static t_modifier	*init_modifier(void)
 {
 	t_modifier	*modifier;
 
-	modifier = ft_memalloc(sizeof(modifier));
-	ft_bzero(modifier, sizeof(modifier));
+	modifier = ft_memalloc(sizeof(t_modifier));
 	return (modifier);
 }
 

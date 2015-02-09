@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 13:45:55 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 19:20:54 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	display_padding(char c, size_t len, size_t min_width)
 	size_t	i;
 
 	i = 0;
-	while (i < (len - min_width))
+	while (i < (min_width - len))
 	{
 		ft_putchar(c);
 		i++;
@@ -31,12 +31,12 @@ void		display(t_data *data, char *str)
 	if (data->flag->minus)
 	{
 		ft_putstr(str);
-		if (data->min_width < len)
+		if (data->min_width > len)
 			display_padding(' ', len, data->min_width);
 	}
 	else
 	{
-		if (data->min_width < len)
+		if (data->min_width > len)
 		{
 			if (data->flag->zero)
 				display_padding('0', len, data->min_width);
@@ -45,4 +45,8 @@ void		display(t_data *data, char *str)
 		}
 		ft_putstr(str);
 	}
+	if (data->min_width > len)
+		COUNT_CHAR(data->min_width);
+	else
+		COUNT_CHAR(len);
 }

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 14:07:32 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 20:58:03 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		parse_flags(t_data *data)
 			}
 			c++;
 		}
-		if (c >= (sizeof(flags) / sizeof(t_flags)))
+		if (c == (sizeof(flags) / sizeof(t_flags)))
 			break ;
 		data->format++;
 	}
