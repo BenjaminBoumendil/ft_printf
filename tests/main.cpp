@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 21:58:51 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 23:31:53 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static bool test_one(const char * format, Args... args)
     auto printf_ret = printf_call(printf, format, args...);
     return printf_ret == ft_printf_ret;
 }
-
+#include <climits>
 int         main(void)
 {
     assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
@@ -83,7 +83,8 @@ int         main(void)
     assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
 
     assert(test_one("%d", 10), "(\"%d\", 10)");
-    assert(test_one("%D", 21474836470), "(\"%D\", 2 147 483 647)");
+    assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
+    assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
 
     assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     assert(test_one("%S", "test"), "(\"%S\", \"test\")");

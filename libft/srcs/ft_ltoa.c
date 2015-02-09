@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ltoa.c                                             :+:      :+:    :+:   */
+/*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 21:44:23 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 21:45:05 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 23:41:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ static char		*n_is_null(long int n, char *str)
 
 char			*ft_ltoa(long int n)
 {
-	char			*str;
-	long int		i;
-	long int		j;
-	long int		n1;
-	long int		n2;
+	char					*str;
+	long int				i;
+	long int				j;
+	unsigned long int		n1;
+	unsigned long int		n2;
 
 	i = 0;
-	n1 = NNB(n);
+	n1 = (n > 0 ? (unsigned long)n : -(unsigned long)n);
 	n2 = n;
-	n2 = NNB(n2);
 	while (n1 != 0 && i++ >= 0)
 		n1 = n1 / 10;
 	n >= 0 ? i : (i = i + 1);
