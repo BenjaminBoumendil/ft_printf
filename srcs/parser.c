@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 13:04:27 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 13:36:21 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		parse_token(t_data *data)
 	const t_token	token[] =
 
 	{              \
-	{ 's', opt_s }, { 'd', opt_d }, { 'c', opt_c }};
+	{ 's', opt_s }, { 'd', opt_d }, { 'c', opt_c }, { 'S', opt_S }};
 	while (*data->format)
 	{
 		c = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 22:55:09 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 13:44:00 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ void			opt_s(t_data *data)
 {
 	char	*str;
 
+	str = va_arg(*data->va, char *);
+	if (str)
+	{
+		COUNT_CHAR(ft_strlen(str));
+		display(data, str);
+	}
+	else
+	{
+		COUNT_CHAR(6);
+		display(data, "(null)");
+	}
+}
+
+void			opt_S(t_data *data)
+{
+	char	*str;
 	str = va_arg(*data->va, char *);
 	if (str)
 	{
@@ -30,6 +46,12 @@ void			opt_s(t_data *data)
 }
 
 void			opt_d(t_data *data)
+{
+	COUNT_CHAR(1);
+	ft_putnbr(va_arg(*data->va, int));
+}
+
+void			opt_D(t_data *data)
 {
 	COUNT_CHAR(1);
 	ft_putnbr(va_arg(*data->va, int));

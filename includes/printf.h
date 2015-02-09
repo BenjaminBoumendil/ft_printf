@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/08 22:33:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 13:42:22 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ size_t			get_integer(t_data *data);
 ** Format tools
 */
 void			opt_s(t_data *data);
+void			opt_S(t_data *data);
 void			opt_d(t_data *data);
+void			opt_D(t_data *data);
 void			opt_c(t_data *data);
 
 #endif
