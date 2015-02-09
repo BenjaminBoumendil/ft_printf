@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 22:11:26 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/09 23:49:44 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			**ft_strsplit(const char *s, char c);
 char			**ft_str_split(const char *s);
 char			*ft_itoa(int n);
+char			*ft_ltoa(long int n);
 void			ft_setcolor(unsigned char color);
 void			ft_resetcolor(void);
 int				ft_strclen(const char *s1, char c);

@@ -64,6 +64,7 @@ LIB_SRC			=	ft_memset.c				\
 					ft_striter.c			\
 					ft_striteri.c			\
 					ft_itoa.c				\
+					ft_ltoa.c				\
 					ft_strmap.c				\
 					ft_strmapi.c			\
 					ft_strequ.c				\
