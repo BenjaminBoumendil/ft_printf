@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 14:06:19 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/09 19:38:05 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		parse_flags(t_data *data)
 			}
 			c++;
 		}
-		if (c >= (sizeof(flags) / sizeof(t_flags)))
+		if (c == (sizeof(flags) / sizeof(t_flags)))
 			break ;
 		data->format++;
 	}
@@ -101,6 +101,6 @@ void		parse_token(t_data *data)
 			c++;
 		}
 		if (c == (sizeof(token) / sizeof(t_token)))
-			data->format++;
+			break ;
 	}
 }
