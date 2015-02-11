@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:49:44 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/10 22:41:01 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ size_t			ft_strlcat(char *dest, const char *src, size_t n);
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 int				ft_atoi(const char *str);
-int				ft_atoi_base(const char *str, const char *base);
+int				ft_atoi_base(const char *str, int base);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 int				ft_isalpha(int c);
@@ -168,6 +168,7 @@ char			**ft_strsplit(const char *s, char c);
 char			**ft_str_split(const char *s);
 char			*ft_itoa(int n);
 char			*ft_ltoa(long int n);
+char			*ft_ltoa_base(long int n, char *base);
 void			ft_setcolor(unsigned char color);
 void			ft_resetcolor(void);
 int				ft_strclen(const char *s1, char c);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/09 22:10:16 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 22:14:01 by bboumend         ###   ########.fr       */
+/*   Created: 2015/02/10 21:16:01 by bboumend          #+#    #+#             */
+/*   Updated: 2015/02/10 21:58:10 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		is_atoi_ignored(char c)
 	|| c == ' ');
 }
 
-int				ft_atoi_base(const char *str, const char *base)
+int				ft_atoi_base(const char *str, int base)
 {
 	unsigned long long	result;
 	int					is_neg;
@@ -34,7 +34,7 @@ int				ft_atoi_base(const char *str, const char *base)
 	is_neg = str && *str == '-';
 	i = str && (*str == '-' || *str == '+');
 	while (ft_isdigit(str[i]))
-		result = result * 10 + (str[i++] - '0');
+		result = result * base + (str[i++] - '0');
 	if (is_neg)
 		return (-result);
 	return (result);

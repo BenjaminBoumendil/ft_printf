@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:49:22 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/10 23:16:35 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void assert(bool passed, const std::string & description)
     }
     std::cout << std::endl;
 }
-
+#include <stdio.h>
 template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
@@ -54,7 +54,7 @@ static auto printf_call(const F & f, const char * format, Args... args)
     close(fds[1]);
     int ret = f(format, args...);
     fflush(stdout);
-    fcntl(fds[0], F_SETFL, O_NONBLOCK);
+    fcntl(fds[0], F_SETFL);
     read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
     std::cout << "BUFF : " << buff << std::endl;
@@ -75,29 +75,37 @@ static bool test_one(const char * format, Args... args)
 #include <climits>
 int         main(void)
 {
-    assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
-    assert(test_one("%010s", "test"), "(\"%010s\", \"test\")");
-    assert(test_one("%10s", "test"), "(\"%10s\", \"test\")");
-    assert(test_one("%-010s", "test"), "(\"%-010s\", \"test\")");
-    assert(test_one("%-10s", "test"), "(\"%-10s\", \"test\")");
-    assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
+    // assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
+    // assert(test_one("%010s", "test"), "(\"%010s\", \"test\")");
+    // assert(test_one("%10s", "test"), "(\"%10s\", \"test\")");
+    // assert(test_one("%-010s", "test"), "(\"%-010s\", \"test\")");
+    // assert(test_one("%-10s", "test"), "(\"%-10s\", \"test\")");
 
-    assert(test_one("%d", 10), "(\"%d\", 10)");
-    assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
-    assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
+    assert(test_one("%%", "test"), "(\"%%s\", \"test\")");
 
-    assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
-    assert(test_one("%S", "test"), "(\"%S\", \"test\")");
+    // assert(test_one("%d", 10), "(\"%d\", 10)");
+    // assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
+    // assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
 
-    assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
-    assert(test_one("%c", 49), "(\"%c\", 49)");
-    assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
+    // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
+    // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
 
-    assert(test_one("%i", 10), "(\"%i\", 10)");
-    assert(test_one("%i", 42949672955), "(\"%i\", 4294967295)");
+    // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
+    // assert(test_one("%c", 49), "(\"%c\", 49)");
+    // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
 
-    assert(test_one("%o", 10), "(\"%o\", 10)");
-    assert(test_one("%0535.2o", INT_MAX), "(\"%-53.2o\", INT_MAX)");
+    // assert(test_one("%i", 10), "(\"%i\", 10)");
+    // assert(test_one("%i", 42949672955), "(\"%i\", 4294967295)");
+
+    // assert(test_one("%o", 10), "(\"%o\", 10)");
+    // assert(test_one("%0535.2o", INT_MAX), "(\"%-53.2o\", INT_MAX)");
+
+    // assert(test_one("%u", -10), "(\"%u\", -10)");
+    // assert(test_one("%u", 10), "(\"%u\", 10)");
+
+    // assert(test_one("%p", "test"), "(\"%p\", \"test\")");
+
+    // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");
 
     return (0);
 }

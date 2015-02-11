@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 23:47:52 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/10 22:53:21 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,9 @@ void		parse_token(t_data *data)
 	const t_token	token[] =
 
 	{              \
-	{ 's', opt_s }, { 'S', opt_S }, { 'd', opt_d }, { 'D', opt_D },
-	{ 'c', opt_c }, { 'i', opt_d }, { 'o', opt_o }};
+	{ 's', opt_s }, { 'S', opt_S }, { 'd', opt_d }, /* { 'D', opt_D }, */
+	{ 'c', opt_c }, { 'i', opt_d }, { 'o', opt_o }, { 'O', opt_O },
+	{ '%', opt_pe }, { 'u', opt_u }, /* { 'p', opt_p } */};
 	while (*data->format)
 	{
 		c = 0;
@@ -98,7 +99,7 @@ void		parse_token(t_data *data)
 				data->format++;
 				data->opt = token[c].c;
 				token[c].f(data);
-				break ;
+				return ;
 			}
 			c++;
 		}

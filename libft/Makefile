@@ -61,6 +61,7 @@ SRC =	ft_memset.c				\
 		ft_striteri.c			\
 		ft_itoa.c				\
 		ft_ltoa.c				\
+		ft_ltoa_base.c			\
 		ft_strmap.c				\
 		ft_strmapi.c			\
 		ft_strequ.c				\

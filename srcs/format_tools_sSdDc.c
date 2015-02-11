@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_tools.c                                     :+:      :+:    :+:   */
+/*   format_tools_sSdDc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:49:31 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/10 23:12:35 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,15 @@ void			opt_D(t_data *data)
 void			opt_c(t_data *data)
 {
 	char	str[2];
+	int		c;
 
-
-	str[0] = (char)va_arg(*data->va, int);
+	c = va_arg(*data->va, int);
+	if (c == 0)
+	{
+		COUNT_CHAR(1);
+		return ;
+	}
+	str[0] = (char)c;
 	str[1] = '\0';
 	display(data, str);
 }

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:47:27 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/10 22:36:56 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "stdarg.h"
 # include "libft.h"
+# include <limits.h>
 
 /*
 ** Defines
@@ -103,6 +104,10 @@ void			opt_d(t_data *data);
 void			opt_D(t_data *data);
 void			opt_c(t_data *data);
 void			opt_o(t_data *data);
+void			opt_O(t_data *data);
+void			opt_u(t_data *data);
+void			opt_pe(t_data *data);
+void			opt_p(t_data *data);
 
 /*
 ** Display

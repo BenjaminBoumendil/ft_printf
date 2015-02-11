@@ -39,6 +39,7 @@ LIB_SRC			=	ft_memset.c				\
 					ft_strstr.c				\
 					ft_strnstr.c			\
 					ft_atoi.c				\
+					ft_atoi_base.c			\
 					ft_strchr.c				\
 					ft_strrchr.c			\
 					ft_isalpha.c			\
@@ -65,6 +66,7 @@ LIB_SRC			=	ft_memset.c				\
 					ft_striteri.c			\
 					ft_itoa.c				\
 					ft_ltoa.c				\
+					ft_ltoa_base.c			\
 					ft_strmap.c				\
 					ft_strmapi.c			\
 					ft_strequ.c				\
@@ -115,8 +117,9 @@ LIB_SRC			=	ft_memset.c				\
 SRC				=	$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
-					format_tools.c						\
+					format_tools_sSdDc.c				\
 					format_tools_ioOuU.c				\
+					format_tools_pexXcC.c				\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\
