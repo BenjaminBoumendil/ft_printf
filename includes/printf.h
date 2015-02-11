@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/10 22:36:56 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 15:34:26 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void			opt_c(t_data *data);
 void			opt_o(t_data *data);
 void			opt_O(t_data *data);
 void			opt_u(t_data *data);
-void			opt_pe(t_data *data);
 void			opt_p(t_data *data);
+void			opt_per(t_data *data);
 
 /*
 ** Display

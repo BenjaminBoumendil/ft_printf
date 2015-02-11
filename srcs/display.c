@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/10 23:04:30 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 15:41:44 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		display(t_data *data, char *str)
 	{
 		if (data->min_width > len)
 		{
-			if (data->flag->zero)
+			if (data->flag->zero && data->opt != 'o')
 				display_padding('0', len, data->min_width);
 			else
 				display_padding(' ', len, data->min_width);
