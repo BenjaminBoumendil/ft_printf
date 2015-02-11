@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 15:41:17 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 17:27:32 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,4 @@ void		opt_u(t_data *data)
 		str = ft_utoa(c);
 	display(data, str);
 	free(str);
-}
-
-void		opt_per(t_data *data)
-{
-	display(data, va_arg(*data->va, char *));
 }

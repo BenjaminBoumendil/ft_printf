@@ -1,59 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_tools_sSdDc.c                               :+:      :+:    :+:   */
+/*   format_tools_perxXcC.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 15:40:56 by bboumend         ###   ########.fr       */
+/*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
+/*   Updated: 2015/02/11 17:28:02 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void			opt_s(t_data *data)
+void		opt_per(t_data *data)
 {
-	char	*str;
-
-	str = va_arg(*data->va, char *);
-	if (str)
-		display(data, str);
-	else
-		display(data, "(null)");
+	display(data, va_arg(*data->va, char *));
 }
 
-void			opt_S(t_data *data)
-{
-	va_arg(*data->va, char *);
-	COUNT_CHAR(-1);
-}
-
-void			opt_d(t_data *data)
-{
-	char	*str;
-
-	str = ft_itoa(va_arg(*data->va, int));
-	display(data, str);
-	free(str);
-}
-
-void			opt_D(t_data *data)
-{
-	char		*str;
-	long int	i;
-
-	i = va_arg(*data->va, long);
-	str = ft_ltoa(i);
-	display(data, str);
-	free(str);
-}
+// void		opt_per(t_data *data)
+// {
+	// COUNT_CHAR(1);
+	// ft_putchar('%');
+	// ft_putchar(*data->format);
+	// data->format++;
+// }
 
 void			opt_c(t_data *data)
 {
 	char	str[2];
 	int		c;
-
 	c = va_arg(*data->va, int);
 	if (c == 0)
 	{
