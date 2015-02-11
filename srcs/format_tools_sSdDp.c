@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 17:58:02 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 22:51:30 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void			opt_s(t_data *data)
 	char	*str;
 
 	str = va_arg(*data->va, char *);
+	data->flag->plus = false;
 	if (str)
 		display(data, str);
 	else

@@ -3,27 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_perxXcC.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 18:30:46 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 22:20:39 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <wchar.h>
+
 void		opt_per(t_data *data)
 {
 	display(data, "%");
 }
 
-// void			opt_x(t_data *data)
-// {
-// }
+void			opt_x(t_data *data)
+{
+	char	*str;
 
-// void			opt_X(t_data *data)
-// {
-// }
+	str = ft_utoa_base(va_arg(*data->va, unsigned int), B_HEX);
+	display(data, str);
+	free(str);
+}
+
+void			opt_X(t_data *data)
+{
+	char	*str;
+
+	str = ft_utoa_base(va_arg(*data->va, unsigned int), B_HEXM);
+	display(data, str);
+	free(str);
+}
 
 void			opt_c(t_data *data)
 {

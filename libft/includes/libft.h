@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 18:07:25 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 22:06:19 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ void			ft_resetcolor(void);
 int				ft_strclen(const char *s1, char c);
 int				ft_strsublen(const char *str, int start, char c);
 char			*ft_utoa(size_t n);
+char			*ft_utoa_base(size_t n, char *base);
 char			*ft_ultoa(unsigned long n);
 int				ft_recursive_power(int nb, int power);
 char			*ft_itoa_base(size_t n, char *base);
