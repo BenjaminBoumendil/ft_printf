@@ -84,6 +84,7 @@ SRC =	ft_memset.c				\
 		ft_lstsize.c			\
 		ft_strsublen.c			\
 		ft_utoa.c				\
+		ft_ultoa.c				\
 		ft_recursive_power.c	\
 		ft_itoa_base.c			\
 		ft_tablen.c				\

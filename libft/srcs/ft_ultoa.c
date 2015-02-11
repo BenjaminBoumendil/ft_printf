@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_ultoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/09 21:44:23 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/11 18:06:24 by bboumend         ###   ########.fr       */
+/*   Created: 2015/02/11 18:08:26 by bboumend          #+#    #+#             */
+/*   Updated: 2015/02/11 18:14:26 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,28 @@ static char		*n_is_null(long int n, char *str)
 	return (0);
 }
 
-char			*ft_ltoa(long int n)
+char			*ft_ultoa(unsigned long n)
 {
-	char					*str;
-	long int				i;
-	long int				j;
-	unsigned long int		n1;
-	unsigned long int		n2;
+	char			*str;
+	unsigned long	i;
+	unsigned long	j;
+	unsigned long	n1;
 
 	i = 0;
-	n1 = (n > 0 ? (unsigned long)n : -(unsigned long)n);
-	n2 = n;
-	while (n1 != 0 && i++ >= 0)
+	n1 = n;
+	while (n1 != 0)
+	{
 		n1 = n1 / 10;
-	n >= 0 ? i : (i = i + 1);
+		++i;
+	}
 	str = ft_memalloc(i + 1);
 	j = i - 1;
 	n_is_null(n, str);
-	while (n2 != 0)
+	while (n != 0)
 	{
-		str[j--] = n2 % 10 + 48;
-		n2 = n2 / 10;
+		str[j--] = n % 10 + 48;
+		n = n / 10;
 	}
 	str[i + 1] = '\0';
-	if (n < 0)
-		str[0] = '-';
 	return (str);
 }
