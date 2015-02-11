@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 17:35:49 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 17:52:32 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void		opt_per(t_data *data)
 {
-	va_arg(*data->va, char *);
 	display(data, "%");
 }
 
-// void		opt_per(t_data *data)
+// void			opt_x(t_data *data)
 // {
-	// COUNT_CHAR(1);
-	// va_arg(*data->va, char *);
-	// ft_putchar('%');
-	// ft_putchar(*data->format);
-	// data->format++;
+// }
+
+// void			opt_X(t_data *data)
+// {
 // }
 
 void			opt_c(t_data *data)
@@ -41,3 +39,7 @@ void			opt_c(t_data *data)
 	str[1] = '\0';
 	display(data, str);
 }
+
+// void			opt_C(t_data *data)
+// {
+// }

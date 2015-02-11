@@ -6,11 +6,15 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 17:27:32 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 17:53:16 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+// void		opt_i(t_data *data)
+// {
+// }
 
 void		opt_o(t_data *data)
 {
@@ -43,3 +47,7 @@ void		opt_u(t_data *data)
 	display(data, str);
 	free(str);
 }
+
+// void		opt_U(t_data *data)
+// {
+// }
