@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/09 23:47:52 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 15:17:38 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		parse_token(t_data *data)
 
 	{              \
 	{ 's', opt_s }, { 'S', opt_S }, { 'd', opt_d }, { 'D', opt_D },
-	{ 'c', opt_c }, { 'i', opt_d }, { 'o', opt_o }};
+	{ 'c', opt_c }, { 'i', opt_d }, { 'o', opt_o }, { '%', opt_per }};
 	while (*data->format)
 	{
 		c = 0;

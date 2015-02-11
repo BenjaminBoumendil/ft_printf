@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:49:44 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 14:37:13 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ size_t			ft_strlcat(char *dest, const char *src, size_t n);
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 int				ft_atoi(const char *str);
-int				ft_atoi_base(const char *str, const char *base);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 int				ft_isalpha(int c);

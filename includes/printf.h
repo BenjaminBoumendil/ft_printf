@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:47:27 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 15:16:37 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void			opt_d(t_data *data);
 void			opt_D(t_data *data);
 void			opt_c(t_data *data);
 void			opt_o(t_data *data);
+void			opt_per(t_data *data);
 
 /*
 ** Display

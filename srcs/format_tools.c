@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 23:49:31 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 15:23:37 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void			opt_d(t_data *data)
 
 	str = ft_itoa(va_arg(*data->va, int));
 	display(data, str);
+	if (data->opt == 'i')
+		data->char_print = -1;
 	free(str);
 }
 
@@ -57,4 +59,5 @@ void			opt_c(t_data *data)
 	str[0] = (char)va_arg(*data->va, int);
 	str[1] = '\0';
 	display(data, str);
+	data->char_print = -1;
 }
