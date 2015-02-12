@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 18:09:24 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/12 22:52:37 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void			opt_s(t_data *data)
 	char	*str;
 
 	str = va_arg(*data->va, char *);
-	data->flag->plus = false;
 	if (str)
 		display(data, str);
 	else

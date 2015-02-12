@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 22:06:19 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 19:08:19 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ char			*ft_utoa(size_t n);
 char			*ft_utoa_base(size_t n, char *base);
 char			*ft_ultoa(unsigned long n);
 int				ft_recursive_power(int nb, int power);
-char			*ft_itoa_base(size_t n, char *base);
+char			*ft_itoa_base(long unsigned int n, char *base);
 int				ft_tablen(char **tab);
 char			*ft_strunion(char **str_array, char c);
 void			ft_free_tab(char **tab);

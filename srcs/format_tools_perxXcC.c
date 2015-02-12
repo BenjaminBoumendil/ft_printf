@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 22:32:46 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/12 22:57:35 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,8 @@ void			opt_c(t_data *data)
 {
 	char	str[2];
 	int		c;
+
 	c = va_arg(*data->va, int);
-	if (c == 0)
-	{
-		COUNT_CHAR(1);
-		return ;
-	}
 	str[0] = (char)c;
 	str[1] = '\0';
 	display(data, str);
@@ -59,15 +55,14 @@ void			opt_C(t_data *data)
 	size_t		len;
 
 	c = va_arg(*data->va, wchar_t);
-	if (c == 0)
-	{
-		COUNT_CHAR(1);
-		return ;
-	}
 	str2 = ft_itoa_base(c, "01");
 	len = ft_strlen(str2);
 	if (len <= 7)
+	{
 		display(data, (char*)&c);
+		free(str2);
+		return ;
+	}
 	else if (len <= 11)
 		str = get_display_char(str2, "110xxxxx10xxxxxx");
 	else if (len <= 16)
