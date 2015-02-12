@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 18:37:15 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 18:00:11 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "stdarg.h"
 # include "libft.h"
 # include <limits.h>
+# include <stdio.h>
 
 /*
 ** Defines
@@ -117,5 +118,17 @@ void			opt_X(t_data *data);
 ** Display
 */
 void			display(t_data *data, char *str);
+
+/*
+** Special cases handling
+*/
+typedef struct	s_handle
+{
+	char		*tokens;
+	void		(*f)(t_data *data, char **str);
+}				t_handle;
+void			handle_special_cases(t_data *data, char **str);
+
+void			neg_numbertoken_zeroflag(char **str);
 
 #endif

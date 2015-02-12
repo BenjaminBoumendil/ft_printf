@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 22:20:39 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 15:40:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ void			opt_c(t_data *data)
 {
 	char	str[2];
 	int		c;
+
 	c = va_arg(*data->va, int);
-	if (c == 0)
+	if (c == 0 && !data->flag->zero)
 	{
 		COUNT_CHAR(1);
 		return ;
@@ -57,7 +58,7 @@ void			opt_C(t_data *data)
 	int		c;
 
 	c = va_arg(*data->va, wint_t);
-	if (c == 0)
+	if (c == 0 && !data->flag->zero)
 	{
 		COUNT_CHAR(1);
 		return ;

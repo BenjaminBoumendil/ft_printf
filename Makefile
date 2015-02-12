@@ -125,6 +125,10 @@ SRC				=	$(LIB_SRC)							\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\
+					scases_handler.c					\
+					number_handling.c					\
+					char_handling.c						\
+					other_handling.c					\
 
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
