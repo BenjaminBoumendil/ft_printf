@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 18:27:12 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 22:28:27 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,5 @@ typedef struct	s_handle
 int				handle_special_cases(t_data *data, char **str);
 
 void			neg_numbertoken_zeroflag(char **str);
-
+void			handle_optc_padding(char c, size_t min_width);
 #endif

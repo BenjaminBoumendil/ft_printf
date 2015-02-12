@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 19:31:49 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 22:42:42 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int         main(void)
 
     // "C" option test
     // assert(test_one("%C", 'a'), "(\"%C\", \'a\')");
+    assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
 
     // "%" option test
     // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
@@ -149,6 +150,7 @@ int         main(void)
     // assert(test_one("{%010d}", -42), "(\"{%010d}\", -42)");
     // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%03c}", 0), "(\"{%03c}\", 0)");
+    // assert(test_one("{%3c}", 0), "(\"{%03c}\", 0)");
 
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 15:35:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/12 19:20:06 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 22:38:58 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,26 @@ static int	handle_numbers(t_data *data, char **str)
 
 static int	handle_chars(t_data *data, char **str)
 {
-	if (!**str && !data->flag->zero && !ft_strchr("s", data->opt))
+	char	*ret;
+
+	if (!**str && (ret = ft_strchr("sc", data->opt)))
 	{
-		COUNT_CHAR(1);
-		return (1);
+		if (!data->flag->zero && *ret == 's')
+			return (1);
+		else if (*ret == 'c')
+		{
+			if (data->min_width > 0)
+			{
+				if (data->flag->zero)
+					handle_optc_padding('0', data->min_width);
+				else
+					handle_optc_padding(' ', data->min_width);
+				COUNT_CHAR(data->min_width + ft_strlen(data->format));
+				data->format++;
+				return (1);
+			}
+			COUNT_CHAR(1);
+		}
 	}
 	data->flag->plus = false;
 	return (0);
