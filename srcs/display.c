@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/11 15:41:44 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 22:47:56 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+static void display_plus(t_data *data, char *str)
+{
+	if (data->flag->plus && str[0] != '-')
+	{
+		ft_putchar('+');
+		COUNT_CHAR(1);
+	}
+}
 
 static void	display_padding(char c, size_t len, size_t min_width)
 {
@@ -28,6 +37,7 @@ void		display(t_data *data, char *str)
 	size_t	len;
 
 	len = ft_strlen(str);
+	display_plus(data, str);
 	if (data->flag->minus)
 	{
 		ft_putstr(str);
