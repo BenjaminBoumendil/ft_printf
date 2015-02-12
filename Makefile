@@ -125,6 +125,7 @@ SRC				=	$(LIB_SRC)							\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\
+					format_c_tools.c					\
 
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

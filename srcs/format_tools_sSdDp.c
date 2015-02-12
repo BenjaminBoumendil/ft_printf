@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 22:51:30 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 18:09:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <wchar.h>
 
 void			opt_s(t_data *data)
 {
@@ -26,8 +27,15 @@ void			opt_s(t_data *data)
 
 void			opt_S(t_data *data)
 {
-	va_arg(*data->va, char *);
-	COUNT_CHAR(-1);
+	wchar_t		*str;
+
+	str = va_arg(*data->va, wchar_t *);
+	ft_putnbr(sizeof(str));
+	// while (str)
+	// {
+		// write(1, str, 4);
+		// str++;
+	// }
 }
 
 void			opt_d(t_data *data)

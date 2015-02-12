@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_perxXcC.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 22:20:39 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 22:32:46 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,28 @@ void			opt_c(t_data *data)
 
 void			opt_C(t_data *data)
 {
-	char	str[2];
-	int		c;
+	int			c;
+	char		*str;
+	char		*str2;
+	size_t		len;
 
-	c = va_arg(*data->va, wint_t);
+	c = va_arg(*data->va, wchar_t);
 	if (c == 0)
 	{
 		COUNT_CHAR(1);
 		return ;
 	}
-	str[0] = (char)c;
-	str[1] = '\0';
+	str2 = ft_itoa_base(c, "01");
+	len = ft_strlen(str2);
+	if (len <= 7)
+		display(data, (char*)&c);
+	else if (len <= 11)
+		str = get_display_char(str2, "110xxxxx10xxxxxx");
+	else if (len <= 16)
+		str = get_display_char(str2, "1110xxxx10xxxxxx10xxxxxx");
+	else
+		str = get_display_char(str2, "11110xxx10xxxxxx10xxxxxx10xxxxxx");
 	display(data, str);
+	free(str);
+	free(str2);
 }
