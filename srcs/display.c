@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/12 18:00:45 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 18:35:57 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void		display(t_data *data, char *str)
 	size_t	len;
 
 	len = ft_strlen(str);
-	handle_special_cases(data, &str);
+	if (handle_special_cases(data, &str) == 1)
+		return ;
 	if (data->flag->minus)
 		display_minus(data, str, len);
 	else

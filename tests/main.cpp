@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 18:11:54 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 19:31:49 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static auto printf_call(const F & f, const char * format, Args... args)
     close(fds[1]);
     int ret = f(format, args...);
     fflush(stdout);
-    fcntl(fds[0], F_SETFL);
+    fcntl(fds[0], F_SETFL, O_NONBLOCK);
     read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
     std::cout << "BUFF : " << buff << std::endl;
@@ -84,6 +84,7 @@ int         main(void)
     // assert(test_one("111%s333%s555%saaa%sccc", "222", "444", "666", "bbb"),
         // "(\"111%s333%s555%saaa%sccc\", \"222\", \"444\", \"666\", \"bbb\")");
     // assert(test_one("%+s", 0), "(\"%+s\", \"0\")");
+    // assert(test_one("{%s}", ""), "(\"{%s}\", \"\")");
 
     // "d" option test
     // assert(test_one("%d", 10), "(\"%d\", 10)");
@@ -98,9 +99,10 @@ int         main(void)
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
 
     // "c" option test
-    // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
+    // assert(test_one("%+c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%c", 49), "(\"%c\", 49)");
     // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
+    // assert(test_one("%c", 0), "(\"%c\", 0)");
 
     // "C" option test
     // assert(test_one("%C", 'a'), "(\"%C\", \'a\')");
@@ -133,6 +135,8 @@ int         main(void)
     // assert(test_one("%0535.2o", INT_MAX), "(\"%053.2o\", INT_MAX)");
     // assert(test_one("%+o", 42), "(\"%+o\", 42)");
     // assert(test_one("%+O", 0), "(\"%+O\", 0)");
+    // assert(test_one("%+o", -42), "(\"%+o\", -42)");
+    // assert(test_one("%+O", -42), "(\"%+O\", -42)");
 
     // "x" option test
     // assert(test_one("%x", 42), "(\"%x\", \"42\")");

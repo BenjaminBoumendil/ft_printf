@@ -3,47 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 18:59:36 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/09 22:14:31 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/12 19:12:36 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*n_is_null(int n, char *str)
-{
-	if (n == 0)
-	{
-		str[0] = '0';
-		str[1] = '\0';
-		return (str);
-	}
-	return (0);
-}
-
 char			*ft_itoa_base(long unsigned int n, char *base)
 {
-	char					*str;
-	int						i;
-	int						j;
-	long unsigned int		n1;
-	int						b;
+	char		*str;
+	int			i;
+	int			j;
+	size_t		n1;
+	size_t		len;
 
 	i = 0;
 	n1 = n;
-	b = ft_strlen(base);
+	len = ft_strlen(base);
 	while (n1 != 0 && i++ >= 0)
-		n1 = n1 / b;
+		n1 = n1 / len;
 	str = ft_memalloc(i + 1);
 	j = i - 1;
-	n_is_null(n, str);
+	if (n == 0)
+		str[0] = '0';
 	while (n != 0)
 	{
-		str[j--] = base[n % b];
-		n = n / b;
+		str[j--] = base[n % len];
+		n = n / len;
 	}
-	str[i + 1] = '\0';
 	return (str);
 }
