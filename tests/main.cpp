@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 18:07:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 18:11:54 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,14 @@ int         main(void)
     // assert(test_one("%c", 49), "(\"%c\", 49)");
     // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
 
+    // "C" option test
+    // assert(test_one("%C", 'a'), "(\"%C\", \'a\')");
+
     // "%" option test
     // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
     // assert(test_one("%%", "test"), "(\"%%s\", \"test\")");
+    // assert(test_one("%%"), "(\"%%s\")");
+    // assert(test_one("%%%s", "test"), "(\"%%%s\", \"test\")");
 
     // "i" option test
     // assert(test_one("%i", 10), "(\"%i\", 10)");
@@ -113,6 +118,9 @@ int         main(void)
     // "u" option test
     // assert(test_one("%u", -10), "(\"%u\", -10)");
     // assert(test_one("%u", 10), "(\"%u\", 10)");
+
+    // "U" option test
+    // assert(test_one("%U", ULONG_MAX), "\"%U\", LONG_MAX");
 
     // "p" option test
     // assert(test_one("%p", "test"), "(\"%p\", \"test\")");
@@ -133,10 +141,10 @@ int         main(void)
     // assert(test_one("%X%X%X%X%X", 1, 100, 999, 42, 999988888), "(\"%X\", \"42\")");
 
     // "0" flag test
-    assert(test_one("{%0d}", -42), "(\"{%0d}\", -42)");
-    assert(test_one("{%010d}", -42), "(\"{%010d}\", -42)");
-    assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
-    assert(test_one("{%03c}", 0), "(\"{%03c}\", 0)");
+    // assert(test_one("{%0d}", -42), "(\"{%0d}\", -42)");
+    // assert(test_one("{%010d}", -42), "(\"{%010d}\", -42)");
+    // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
+    // assert(test_one("{%03c}", 0), "(\"{%03c}\", 0)");
 
     return (0);
 }
