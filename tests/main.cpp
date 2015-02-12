@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 15:44:12 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 18:24:21 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,32 +82,36 @@ int         main(void)
     // assert(test_one("%-10s", "test"), "(\"%-10s\", \"test\")");
     // assert(test_one("111%s333%s555%saaa%sccc", "222", "444", "666", "bbb"),
         // "(\"111%s333%s555%saaa%sccc\", \"222\", \"444\", \"666\", \"bbb\")");
-
+// 
     // assert(test_one("%d", 10), "(\"%d\", 10)");
-
+// 
     // assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
     // assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
-
+// 
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-
-    // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
+// 
+    assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%c", 49), "(\"%c\", 49)");
     // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
-
-    assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
-    assert(test_one("%%", "test"), "(\"%%s\", \"test\")");
-
+// 
+    assert(test_one("%C", 'a'), "(\"%C\", \'a\')");
+// 
+    // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
+    // assert(test_one("%%", "test"), "(\"%%s\", \"test\")");
+    // assert(test_one("%%"), "(\"%%s\")");
+    // assert(test_one("%%%s", "test"), "(\"%%%s\", \"test\")");
+// 
     // assert(test_one("%i", 10), "(\"%i\", 10)");
     // assert(test_one("%i", 42949672955), "(\"%i\", 4294967295)");
-
+// 
     // assert(test_one("%u", -10), "(\"%u\", -10)");
     // assert(test_one("%u", 10), "(\"%u\", 10)");
-
+// 
+    // assert(test_one("%U", ULONG_MAX), "\"%U\", LONG_MAX");
+// 
     // assert(test_one("%p", "test"), "(\"%p\", \"test\")");
-
-    // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");
-
+// 
     // assert(test_one("%o", 42), "(\"%o\", 42)");
     // assert(test_one("%0535.2o", INT_MAX), "(\"%053.2o\", INT_MAX)");
 
