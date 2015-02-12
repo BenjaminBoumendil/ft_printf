@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 15:35:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/12 22:38:58 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/12 22:56:21 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	handle_chars(t_data *data, char **str)
 {
 	char	*ret;
 
-	if (!**str && (ret = ft_strchr("sc", data->opt)))
+	if (!**str && (ret = ft_strchr("scC", data->opt)))
 	{
 		if (!data->flag->zero && *ret == 's')
 			return (1);
@@ -47,8 +47,8 @@ static int	handle_chars(t_data *data, char **str)
 				data->format++;
 				return (1);
 			}
-			COUNT_CHAR(1);
 		}
+		COUNT_CHAR(1);
 	}
 	data->flag->plus = false;
 	return (0);

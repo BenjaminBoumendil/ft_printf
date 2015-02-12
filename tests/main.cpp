@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 22:52:17 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/12 22:55:09 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ static bool test_one(const char * format, Args... args)
 
 int         main(void)
 {
-    char* l = setlocale(LC_ALL, "en_US.UTF-8"); 
+    char* l = setlocale(LC_ALL, "en_US.UTF-8");
 
-    if (l == NULL) { 
-    printf("Locale not set\n"); 
-    } else { 
-    printf("Locale set to %s\n", l); 
-    } 
+    if (l == NULL) {
+    printf("Locale not set\n");
+    } else {
+    printf("Locale set to %s\n", l);
+    }
     // "s" option test
     // assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
     // assert(test_one("%010s", "test"), "(\"%010s\", \"test\")");
@@ -107,7 +107,7 @@ int         main(void)
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
     // assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
-// 
+//
 
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
@@ -121,8 +121,9 @@ int         main(void)
     // assert(test_one("%C", L'α'), "(\"%C\", L\'α\')");
     // assert(test_one("%C", L'a'), "(\"%C\", L\'a\')");
     // assert(test_one("%C", L'猫'), "(\"%C\", L\'猫\')");
-    assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
+    // assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
     // assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
+    assert(test_one("%C", 0), "(\"%C\", \'a\')");
 
     // "%" option test
     // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
