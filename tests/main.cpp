@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:29:57 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 19:47:27 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int         main(void)
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-    // assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
+    assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
 //
 
     // "c" option test
@@ -144,14 +144,14 @@ int         main(void)
 
     // "p" option test
     // assert(test_one("%p", "test"), "(\"%p\", \"test\")");
-    int i;
-    assert(test_one("%p", &i), "(\"%p\", &i)");
-    unsigned long l;
-    assert(test_one("%p", &l), "(\"%p\", &l)");
-    char *str;
-    assert(test_one("%p", &str), "(\"%p\", &str)");
-    assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
-    assert(test_one("%p", 0), "(\"%p\", 0)");
+    // int i;
+    // assert(test_one("%p", &i), "(\"%p\", &i)");
+    // unsigned long l;
+    // assert(test_one("%p", &l), "(\"%p\", &l)");
+    // char *str;
+    // assert(test_one("%p", &str), "(\"%p\", &str)");
+    // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
+    // assert(test_one("%p", 0), "(\"%p\", 0)");
 
     // "e" option test
     // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");

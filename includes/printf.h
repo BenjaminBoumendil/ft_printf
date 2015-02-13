@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 22:55:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 19:59:03 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void			opt_per(t_data *data);
 void			opt_x(t_data *data);
 void			opt_X(t_data *data);
 char			*get_display_char(char *str, char *b_mask);
+void			make_opt_s(t_data *data, int c);
 
 /*
 ** Display
