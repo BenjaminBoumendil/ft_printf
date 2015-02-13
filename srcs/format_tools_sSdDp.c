@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:25:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 19:40:22 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void			opt_D(t_data *data)
 
 void		opt_p(t_data *data)
 {
-	void	*p;
 	char	*str;
-	int		c;
+	size_t	c;
 
-	p = va_arg(*data->va, void*);
-	c = ft_atoi_base(p, B_HEX);
-	str = ft_itoa(c);
+	c = va_arg(*data->va, size_t);
+	str = ft_utoa_base(c, B_HEX);
+	ft_putstr("0x");
+	COUNT_CHAR(2);
 	display(data, str);
 }

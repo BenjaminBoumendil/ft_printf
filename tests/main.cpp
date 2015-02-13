@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:03:52 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 19:40:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ static bool test_one(const char * format, Args... args)
 
 int         main(void)
 {
-    char* l = setlocale(LC_ALL, "en_US.UTF-8");
+    char* local = setlocale(LC_ALL, "en_US.UTF-8");
 
-    if (l == NULL) {
+    if (local == NULL) {
     printf("Locale not set\n");
     } else {
-    printf("Locale set to %s\n", l);
+    printf("Locale set to %s\n", local);
     }
     // "s" option test
     // assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
@@ -146,6 +146,14 @@ int         main(void)
 
     // "p" option test
     // assert(test_one("%p", "test"), "(\"%p\", \"test\")");
+    // int i;
+    // assert(test_one("%p", &i), "(\"%p\", &i)");
+    // unsigned long l;
+    // assert(test_one("%p", &l), "(\"%p\", &l)");
+    // char *str;
+    // assert(test_one("%p", &str), "(\"%p\", &str)");
+    // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
+    // assert(test_one("%p", 0), "(\"%p\", 0)");
 
     // "e" option test
     // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");
