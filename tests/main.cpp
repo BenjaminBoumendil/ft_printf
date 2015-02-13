@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:47:27 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 20:01:02 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,15 @@ int         main(void)
     // "D" option test
     // assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
     // assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
+    // assert(test_one("%D", 0L), "(\"%D\", 0L)");
+    // assert(test_one("%D", 1L), "(\"%D\", 1L)");
+    assert(test_one("%D", -1L), "(\"%D\", -1L)");
 
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-    assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
+    // assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
 //
-
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%+c", 'a'), "(\"%c\", \'a\')");

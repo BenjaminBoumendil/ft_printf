@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:59:03 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 20:01:36 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include <limits.h>
 # include <stdio.h>
+# include <wchar.h>
 
 /*
 ** Defines
