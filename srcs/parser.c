@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/11 18:36:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 19:01:30 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		parse_token(t_data *data)
 	const t_token	token[] =
 
 	{              \
-	{ 's', opt_s }, { 'S', opt_S }, { 'd', opt_d }, /* { 'D', opt_D }, */
+	{ 's', opt_s }, { 'S', opt_S }, { 'd', opt_d }, { 'D', opt_D },
 	{ 'c', opt_c }, { 'i', opt_d }, { 'o', opt_o }, { 'O', opt_O },
 	{ '%', opt_per }, { 'u', opt_u }, /* { 'p', opt_p }*/ { 'U', opt_U },
 	{ 'C', opt_C }, {'x', opt_x }, {'X', opt_X }};

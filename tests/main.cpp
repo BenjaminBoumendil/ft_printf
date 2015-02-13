@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 18:16:56 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 19:03:52 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,14 @@ int         main(void)
     // "D" option test
     // assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
     // assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
+    // assert(test_one("%D", 0L), "(\"%D\", 0L)");
+    // assert(test_one("%D", 1L), "(\"%D\", 1L)");
+    assert(test_one("%D", -1L), "(\"%D\", -1L)");
 
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
     // assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
-//
 
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
@@ -121,7 +123,7 @@ int         main(void)
     // assert(test_one("%C", L'α'), "(\"%C\", L\'α\')");
     // assert(test_one("%C", L'a'), "(\"%C\", L\'a\')");
     // assert(test_one("%C", L'猫'), "(\"%C\", L\'猫\')");
-    assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
+    // assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
     // assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
     // assert(test_one("%C", 0), "(\"%C\", \'a\')");
 

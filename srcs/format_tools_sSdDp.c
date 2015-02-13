@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 17:25:50 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 19:25:33 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			opt_d(t_data *data)
 	display(data, str);
 	free(str);
 }
-
+#include <stdio.h>
 void			opt_D(t_data *data)
 {
 	char		*str;
