@@ -6,22 +6,20 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 21:44:23 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/13 19:38:52 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 19:57:13 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 char			*ft_ltoa(long int n)
 {
 	char			*str;
 	long int		i;
 	long int		n1;
-	long int		n2;
 
 	i = 0;
-	n1 = (n > 0 ? n : -n);
-	n2 = (n < 0 ? n * -1: n);
+	n1 = n;
 	while (n1 != 0 && i++ >= 0)
 		n1 = n1 / 10;
 	n >= 0 ? i : (i = i + 1);
@@ -29,12 +27,13 @@ char			*ft_ltoa(long int n)
 	i--;
 	if (n == 0)
 		str[0] = '0';
-	while (n2 != 0)
-	{
-		str[i--] = n2 % 10 + 48;
-		n2 = n2 / 10;
-	}
 	if (n < 0)
 		str[0] = '-';
+	while (n != 0)
+	{
+		n1 = (n % 10);
+		str[i--] = (n1 < 0 ? (-n1 + 48) : (n1 + 48));
+		n = n / 10;
+	}
 	return (str);
 }

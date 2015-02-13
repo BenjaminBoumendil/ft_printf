@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:40:43 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 19:44:54 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ int         main(void)
     // assert(test_one("%+d", 42), "(\"%+d\", 42)");
 
     // "D" option test
-    // assert(test_one("%D", LONG_MAX), "(\"%D\", 2 147 483 647)");
-    // assert(test_one("%D", LONG_MIN), "(\"%D\", -2 147 483 647)");
+    assert(test_one("%D", LONG_MAX), "(\"%D\", 9223372036854775807)");
+    assert(test_one("%D", LONG_MIN), "(\"%D\", -9223372036854775808)");
     // assert(test_one("%D", 0L), "(\"%D\", 0L)");
     // assert(test_one("%D", 1L), "(\"%D\", 1L)");
-    assert(test_one("%D", -1L), "(\"%D\", -1L)");
+    // assert(test_one("%D", -1L), "(\"%D\", -1L)");
 
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
