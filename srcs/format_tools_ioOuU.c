@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_ioOuU.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 19:17:06 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 22:53:20 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void		opt_o(t_data *data)
 {
 	char	*str;
 
-	str = ft_itoa_base(va_arg(*data->va, long int), B_OCT);
+	if (data->modifier->hh)
+		str = ft_ultoa_base(va_arg(*data->va, unsigned long int) % 256, B_OCT);
+	else
+		str = ft_itoa_base(va_arg(*data->va, long int), B_OCT);
 	display(data, str);
 	free(str);
 }
@@ -32,14 +35,12 @@ void		opt_O(t_data *data)
 
 void		opt_u(t_data *data)
 {
-	char	*str;
-	int		c;
+	char			*str;
 
-	c = va_arg(*data->va, int);
-	if (c < 0)
-		str = ft_utoa(UINT_MAX - NNB(c) + 1);
+	if (data->modifier->hh)
+		str = ft_itoa(va_arg(*data->va, unsigned int) % 256);
 	else
-		str = ft_utoa(c);
+		str = ft_ultoa(va_arg(*data->va, unsigned long));
 	display(data, str);
 	free(str);
 }

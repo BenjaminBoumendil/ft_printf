@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 17:20:52 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 21:55:11 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ int				ft_strsublen(const char *str, int start, char c);
 char			*ft_utoa(size_t n);
 char			*ft_utoa_base(size_t n, char *base);
 char			*ft_ultoa(unsigned long n);
+char			*ft_ultoa_base(unsigned long n, char *base);
 int				ft_recursive_power(int nb, int power);
 char			*ft_itoa_base(long unsigned int n, char *base);
 int				ft_tablen(char **tab);

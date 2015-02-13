@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 20:01:29 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 23:09:18 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void			opt_s(t_data *data)
 {
 	char	*str;
 
+	if (data->modifier->l)
+	{
+		opt_S(data);
+		return ;
+	}
 	str = va_arg(*data->va, char *);
 	if (str)
 		display(data, str);
@@ -47,7 +52,13 @@ void			opt_d(t_data *data)
 {
 	char	*str;
 
-	str = ft_itoa(va_arg(*data->va, int));
+	if (data->modifier->l || data->modifier->ll || \
+		data->modifier->j || data->modifier->z)
+		str = ft_ltoa(va_arg(*data->va, long long));
+	else if (data->modifier->hh)
+		str = ft_itoa((char)va_arg(*data->va, int));
+	else
+		str = ft_itoa(va_arg(*data->va, int));
 	display(data, str);
 	free(str);
 }

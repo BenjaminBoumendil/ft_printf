@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 19:58:40 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/13 23:39:57 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
     char buff[BUFF_MAX_SIZE] = {0};
-    int fds[2];
-    int saved_stdout;
-
-    fflush(stdout);
-    pipe(fds);
-    saved_stdout = dup(STDOUT_FILENO);
-    dup2(fds[1], STDOUT_FILENO);
-    close(fds[1]);
+    // int fds[2];
+    // int saved_stdout;
+// 
+    // fflush(stdout);
+    // pipe(fds);
+    // saved_stdout = dup(STDOUT_FILENO);
+    // dup2(fds[1], STDOUT_FILENO);
+    // close(fds[1]);
     int ret = f(format, args...);
-    fflush(stdout);
-    fcntl(fds[0], F_SETFL);
-    read(fds[0], buff, BUFF_MAX_SIZE);
-    dup2(saved_stdout, STDOUT_FILENO);
-    std::cout << "BUFF : " << buff << std::endl;
+    // fflush(stdout);
+    // fcntl(fds[0], F_SETFL);
+    // read(fds[0], buff, BUFF_MAX_SIZE);
+    // dup2(saved_stdout, STDOUT_FILENO);
+    // std::cout << "BUFF : " << buff << std::endl;
     std::cout << "RET  : " << ret << std::endl;
 
     return std::make_pair(std::string(buff), ret);
@@ -98,6 +98,8 @@ int         main(void)
     // "d" option test
     // assert(test_one("%d", 10), "(\"%d\", 10)");
     // assert(test_one("%+d", 42), "(\"%+d\", 42)");
+    // assert(test_one("%ld", (long)INT_MAX + 1), "(\"%ld\", (long)INT_MAX + 1)");
+    // assert(test_one("%hhd", CHAR_MAX + 42), "(\"%hhd\", CHAR_MAX + 42)");
 
     // "D" option test
     // assert(test_one("%D", LONG_MAX), "(\"%D\", 9223372036854775807)");
@@ -116,7 +118,6 @@ int         main(void)
     // assert(test_one("%+c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%c", 49), "(\"%c\", 49)");
     // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
-    // assert(test_one("%c", 0), "(\"%c\", 0)");
 
     // "C" option test
     // assert(test_one("%C", 'a'), "(\"%C\", \'a\')");
@@ -126,6 +127,7 @@ int         main(void)
     // assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
     // assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
     // assert(test_one("%C", 0), "(\"%C\", \'a\')");
+    assert(test_one("%hhC, %hhC", 0, L'米'), "(\"TEST%hhCTEST\", L\'米\')");
 
     // "%" option test
     // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
@@ -140,6 +142,7 @@ int         main(void)
     // "u" option test
     // assert(test_one("%u", -10), "(\"%u\", -10)");
     // assert(test_one("%u", 10), "(\"%u\", 10)");
+    // assert(test_one("%hhu, %hhu", 0, UCHAR_MAX + 42), "(\"%hhu, %hhu\", 0, UCHAR_MAX + 42)");
 
     // "U" option test
     // assert(test_one("%U", ULONG_MAX), "\"%U\", LONG_MAX");

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 18:18:40 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 23:38:51 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void			opt_x(t_data *data)
 {
 	char	*str;
 
-	str = ft_utoa_base(va_arg(*data->va, unsigned int), B_HEX);
+	if (data->modifier->hh)
+		str = ft_ultoa_base(va_arg(*data->va, unsigned long) % 256, B_HEX);
+	else
+		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_HEX);
 	display(data, str);
 	free(str);
 }
@@ -31,7 +34,10 @@ void			opt_X(t_data *data)
 {
 	char	*str;
 
-	str = ft_utoa_base(va_arg(*data->va, unsigned int), B_HEXM);
+	if (data->modifier->hh)
+		str = ft_ultoa_base(va_arg(*data->va, unsigned long) % 256, B_HEXM);
+	else
+		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_HEXM);
 	display(data, str);
 	free(str);
 }
@@ -41,6 +47,11 @@ void			opt_c(t_data *data)
 	char	str[2];
 	int		c;
 
+	if (data->modifier->l)
+	{
+		opt_C(data);
+		return ;
+	}
 	c = va_arg(*data->va, int);
 	str[0] = (char)c;
 	str[1] = '\0';
