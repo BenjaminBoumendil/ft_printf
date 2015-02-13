@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 17:45:32 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 18:16:56 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
     char buff[BUFF_MAX_SIZE] = {0};
-    // int fds[2];
-    // int saved_stdout;
-// 
-    // fflush(stdout);
-    // pipe(fds);
-    // saved_stdout = dup(STDOUT_FILENO);
-    // dup2(fds[1], STDOUT_FILENO);
-    // close(fds[1]);
+    int fds[2];
+    int saved_stdout;
+
+    fflush(stdout);
+    pipe(fds);
+    saved_stdout = dup(STDOUT_FILENO);
+    dup2(fds[1], STDOUT_FILENO);
+    close(fds[1]);
     int ret = f(format, args...);
-    // fflush(stdout);
-    // fcntl(fds[0], F_SETFL);
-    // read(fds[0], buff, BUFF_MAX_SIZE);
-    // dup2(saved_stdout, STDOUT_FILENO);
-    // std::cout << "BUFF : " << buff << std::endl;
+    fflush(stdout);
+    fcntl(fds[0], F_SETFL);
+    read(fds[0], buff, BUFF_MAX_SIZE);
+    dup2(saved_stdout, STDOUT_FILENO);
+    std::cout << "BUFF : " << buff << std::endl;
     std::cout << "RET  : " << ret << std::endl;
 
     return std::make_pair(std::string(buff), ret);
