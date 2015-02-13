@@ -112,7 +112,7 @@ SRC =	ft_memset.c				\
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
+CFLAGS = -Wall -Wextra -Werror -O3 -I$(INCLUDE_DIR)
 
 STAR		=		**********
 

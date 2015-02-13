@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 21:59:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 22:30:25 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 17:24:52 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 static char		*feed_binary_string(char *str, char *b_mask)
 {
 	char		*tab;
-	size_t		i;
-	size_t		c;
+	int			i;
+	int			c;
 
 	tab = ft_strdup(b_mask);
 	i = ft_strlen(tab) - 1;
 	c = ft_strlen(str) - 1;
-	while (i != 0)
+	while (i >= 0 && c >= 0)
 	{
-		if (tab[i] == 'x' && str[c])
+		if (tab[i] == 'x')
 			tab[i] = str[c--];
 		i--;
 	}
@@ -52,8 +52,8 @@ char			*get_display_char(char *str, char *b_mask)
 	tmp = ft_memalloc(ft_strlen(tab) / len);
 	while (c < len)
 	{
-		final_str[c] = ft_atoi_base( \
-						ft_strncpy(tmp, &tab[c * 8], ft_strlen(tab) / len), 2);
+		final_str[c] = (char)ft_atoi_base( \
+						ft_strncpy(tmp, &tab[c * 8], ft_strlen(tab) / len), "01");
 		c++;
 	}
 	free(tmp);

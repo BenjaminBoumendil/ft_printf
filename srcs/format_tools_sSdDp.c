@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/12 22:52:37 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 17:25:50 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		opt_p(t_data *data)
 	int		c;
 
 	p = va_arg(*data->va, void*);
-	c = ft_atoi_base(p, 16);
+	c = ft_atoi_base(p, B_HEX);
 	str = ft_itoa(c);
 	display(data, str);
 }
