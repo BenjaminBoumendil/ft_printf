@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 23:39:57 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/14 18:32:20 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
     char buff[BUFF_MAX_SIZE] = {0};
-    // int fds[2];
-    // int saved_stdout;
-// 
-    // fflush(stdout);
-    // pipe(fds);
-    // saved_stdout = dup(STDOUT_FILENO);
-    // dup2(fds[1], STDOUT_FILENO);
-    // close(fds[1]);
+    int fds[2];
+    int saved_stdout;
+
+    fflush(stdout);
+    pipe(fds);
+    saved_stdout = dup(STDOUT_FILENO);
+    dup2(fds[1], STDOUT_FILENO);
+    close(fds[1]);
     int ret = f(format, args...);
-    // fflush(stdout);
-    // fcntl(fds[0], F_SETFL);
-    // read(fds[0], buff, BUFF_MAX_SIZE);
-    // dup2(saved_stdout, STDOUT_FILENO);
-    // std::cout << "BUFF : " << buff << std::endl;
+    fflush(stdout);
+    fcntl(fds[0], F_SETFL);
+    read(fds[0], buff, BUFF_MAX_SIZE);
+    dup2(saved_stdout, STDOUT_FILENO);
+    std::cout << "BUFF : " << buff << std::endl;
     std::cout << "RET  : " << ret << std::endl;
 
     return std::make_pair(std::string(buff), ret);
@@ -127,7 +127,7 @@ int         main(void)
     // assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
     // assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
     // assert(test_one("%C", 0), "(\"%C\", \'a\')");
-    assert(test_one("%hhC, %hhC", 0, L'米'), "(\"TEST%hhCTEST\", L\'米\')");
+    // assert(test_one("%hhC, %hhC", 0, L'米'), "(\"TEST%hhCTEST\", L\'米\')");
 
     // "%" option test
     // assert(test_one("%%s", "test"), "(\"%%s\", \"test\")");
@@ -157,6 +157,7 @@ int         main(void)
     // assert(test_one("%p", &str), "(\"%p\", &str)");
     // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
     // assert(test_one("%p", 0), "(\"%p\", 0)");
+    // assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
 
     // "e" option test
     // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");

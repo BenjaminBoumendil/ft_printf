@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/12 18:35:57 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/14 18:16:58 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void		display(t_data *data, char *str)
 			else
 				str = display_padding(str, ' ', len, data->min_width);
 		}
-		ft_putstr(str);
+		if (*str == '\0')
+			write(1, str, 1);
+		else
+			ft_putstr(str);
 	}
 	if (data->min_width > len)
 		COUNT_CHAR(data->min_width);
