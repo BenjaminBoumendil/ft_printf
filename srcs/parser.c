@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/14 17:21:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/14 18:29:55 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		parse_modifier(t_data *data)
 
 	{                                                             \
 	{ "hh", &data->modifier->hh }, { "h", &data->modifier->h },   \
-	{ "ll", &data->modifier->l }, { "l", &data->modifier->l  },   \
+	{ "ll", &data->modifier->ll }, { "l", &data->modifier->l },   \
 	{ "j", &data->modifier->j }, { "z", &data->modifier->z }};
 	while (*data->format)
 	{

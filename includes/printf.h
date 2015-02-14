@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 17:21:51 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/14 18:29:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_modifier
 	bool		hh;
 	bool		h;
 	bool		l;
+	bool		ll;
 	bool		j;
 	bool		z;
 }				t_modifier;
