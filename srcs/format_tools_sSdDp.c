@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 17:21:36 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/14 17:36:59 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void		opt_p(t_data *data)
 
 	c = va_arg(*data->va, size_t);
 	str = ft_utoa_base(c, B_HEX);
-	ft_putstr("0x");
-	COUNT_CHAR(2);
+	str = ft_strjoin("0x", str);
 	display(data, str);
 }
