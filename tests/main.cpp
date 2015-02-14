@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 18:32:20 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/14 18:33:43 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ int         main(void)
     // assert(test_one("%p", &str), "(\"%p\", &str)");
     // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
     // assert(test_one("%p", 0), "(\"%p\", 0)");
-    // assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
+    assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
 
     // "e" option test
     // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");
