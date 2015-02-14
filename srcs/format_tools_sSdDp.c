@@ -6,8 +6,11 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 18:31:56 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/14 18:33:13 by bboumend         ###   ########.fr       */
 /*                                                                            */
+/* ************************************************************************** */
+
+                                                                  */
 /* ************************************************************************** */
 
 #include "printf.h"
@@ -52,8 +55,7 @@ void			opt_d(t_data *data)
 {
 	char	*str;
 
-	if (data->modifier->l || data->modifier->ll || \
-		data->modifier->j || data->modifier->z)
+	if (data->modifier->l || data->modifier->j || data->modifier->z)
 		str = ft_ltoa(va_arg(*data->va, long long));
 	else if (data->modifier->hh)
 		str = ft_itoa((char)va_arg(*data->va, int));
