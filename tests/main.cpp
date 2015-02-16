@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 15:01:41 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 15:44:32 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int         main(void)
 
     // "d" option test
     // assert(test_one("%d", 10), "(\"%d\", 10)");
+    // assert(test_one("% d", 10), "(\"% d\", 10)");
     // assert(test_one("%+d", 42), "(\"%+d\", 42)");
     // assert(test_one("%ld", (long)INT_MAX + 1), "(\"%ld\", (long)INT_MAX + 1)");
     // assert(test_one("%hhd", CHAR_MAX + 42), "(\"%hhd\", CHAR_MAX + 42)");
@@ -174,6 +175,7 @@ int         main(void)
 
     // "x" option test
     // assert(test_one("%x", 42), "(\"%x\", \"42\")");
+    // assert(test_one("%#x", 42), "(\"%#x\", \"42\")");
     // assert(test_one("%X", 42), "(\"%X\", \"42\")");
     // assert(test_one("%x%x%x%x%x", 1, 100, 999, 42, 999988888), "(\"%x\", \"42\")");
     // assert(test_one("%X%X%X%X%X", 1, 100, 999, 42, 999988888), "(\"%X\", \"42\")");
