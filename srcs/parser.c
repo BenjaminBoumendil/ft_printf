@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/14 18:29:55 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 15:33:22 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,10 @@ void		parse_token(t_data *data)
 			c++;
 		}
 		if (c == (sizeof(token) / sizeof(t_token)))
+		{
+			if (data->min_width > 0)
+				handle_padding_with_no_option(data);
 			break ;
+		}
 	}
 }
