@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 14:28:53 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 15:20:08 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void			opt_x(t_data *data)
 {
 	char	*str;
 
+	data->flag->plus = 0;
 	if (data->modifier->hh)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long) % 256, B_HEX);
 	else
@@ -34,6 +35,7 @@ void			opt_X(t_data *data)
 {
 	char	*str;
 
+	data->flag->plus = 0;
 	if (data->modifier->hh)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long) % 256, B_HEXM);
 	else

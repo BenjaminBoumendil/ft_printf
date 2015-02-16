@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 14:14:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 15:01:41 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ static auto printf_call(const F & f, const char * format, Args... args)
     int ret = f(format, args...);
     fflush(stdout);
     fcntl(fds[0], F_SETFL);
-    read(fds[0], buff, BUFF_MAX_SIZE);
+    auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
     std::cout << "BUFF : " << buff << std::endl;
     std::cout << "RET  : " << ret << std::endl;
 
-    return std::make_pair(std::string(buff), ret);
+    return std::make_pair(std::string(buff, read_ret), ret);
 }
 
 template <class... Args>
@@ -170,7 +170,7 @@ int         main(void)
     // assert(test_one("%+O", 0), "(\"%+O\", 0)");
     // assert(test_one("%+o", -42), "(\"%+o\", -42)");
     // assert(test_one("%+O", -42), "(\"%+O\", -42)");
-    assert(test_one("%o, %ho, %hho", -42, -42, -42), "(\"%o, %ho, %hho\", -42, -42, -42)");
+    // assert(test_one("%o, %ho, %hho", -42, -42, -42), "(\"%o, %ho, %hho\", -42, -42, -42)");
 
     // "x" option test
     // assert(test_one("%x", 42), "(\"%x\", \"42\")");
