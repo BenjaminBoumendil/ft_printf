@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:26:35 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:27:17 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int         main(void)
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-    assert(test_one("%S", L"我是一只猫。"), "\"%S\", L\"我是一只猫。\"");
+    // assert(test_one("%S", L"我是一只猫。"), "\"%S\", L\"我是一只猫。\"");
 
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
@@ -200,8 +200,8 @@ int         main(void)
     // assert(test_one("{%-12p}", &strlen), "(\"{%-12p}\", &strlen)");
     // assert(test_one("{%10Rqewgrehtrjytu}"), "(\"{%10R}\")");
     // assert(test_one("{%10Rewrhr%s}", "ok"), "(\"{%10R}\")");
-    assert(test_one("{%30S}", L"我是一只猫。"), "(\"{%30S}\", L\"我是一只猫。\")");
-    assert(test_one("{%-30S}", L"我是一只猫。"), "(\"{%-30S}\", L\"我是一只猫。\")");
+    // assert(test_one("{%30S}", L"我是一只猫。"), "(\"{%30S}\", L\"我是一只猫。\")");
+    // assert(test_one("{%-30S}", L"我是一只猫。"), "(\"{%-30S}\", L\"我是一只猫。\")");
 
     return (0);
 }
