@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:26:03 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 18:45:14 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void			opt_C(t_data *data)
 
 	c = va_arg(*data->va, wchar_t);
 	str = convert_wchar(data, c);
-	display(data, str);
-	free(str);
+	if (str)
+	{
+		display(data, str);
+		free(str);
+	}
 }
