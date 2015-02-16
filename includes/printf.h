@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:22:58 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:26:55 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void			parse_modifier(t_data *data);
 void			parse_token(t_data *data);
 
 size_t			get_integer(t_data *data);
+void			handle_padding_with_no_option(t_data *data);
 
 /*
 ** Format tools

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:22:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:26:35 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ static auto printf_call(const F & f, const char * format, Args... args)
     fcntl(fds[0], F_SETFL);
     auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
-    std::cout << "BUFF : " << buff << std::endl;
-    std::cout << "RET  : " << ret << std::endl;
+    write(1, "BUFF : ", 7);
+    write(1, buff, read_ret);
+    std::cout << "\nRET  : " << ret << std::endl;
 
     return std::make_pair(std::string(buff, read_ret), ret);
 }
@@ -74,7 +75,7 @@ static bool test_one(const char * format, Args... args)
 }
 
 #include <locale.h>
-
+#include <cstring>
 int         main(void)
 {
     char* local = setlocale(LC_ALL, "en_US.UTF-8");
@@ -158,7 +159,7 @@ int         main(void)
     // assert(test_one("%p", &str), "(\"%p\", &str)");
     // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
     // assert(test_one("%p", 0), "(\"%p\", 0)");
-    // assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
+    // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
     // assert(test_one("% p|%+p", 42, 42), "(\"% p|%+p\", 42, 42)");
 
     // "e" option test
@@ -186,6 +187,21 @@ int         main(void)
     // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%03c}", 0), "(\"{%03c}\", 0)");
     // assert(test_one("{%3c}", 0), "(\"{%03c}\", 0)");
+
+    // "min_width" option test
+    // assert(test_one("{%10d}", 42), "(\"{%10d}\", 42)");
+    // assert(test_one("{%4d}", 10000), "(\"{%4d}\", 10000)");
+    // assert(test_one("{%30d}", 10000), "(\"{%30d}\", 10000)");
+    // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
+    // assert(test_one("{%3c}", 0), "(\"{%3c}\", 0)");
+    // assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
+    // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
+    // assert(test_one("{%-13p}", &strlen), "(\"{%-13p}\", &strlen)");
+    // assert(test_one("{%-12p}", &strlen), "(\"{%-12p}\", &strlen)");
+    // assert(test_one("{%10Rqewgrehtrjytu}"), "(\"{%10R}\")");
+    // assert(test_one("{%10Rewrhr%s}", "ok"), "(\"{%10R}\")");
+    assert(test_one("{%30S}", L"我是一只猫。"), "(\"{%30S}\", L\"我是一只猫。\")");
+    assert(test_one("{%-30S}", L"我是一只猫。"), "(\"{%-30S}\", L\"我是一只猫。\")");
 
     return (0);
 }
