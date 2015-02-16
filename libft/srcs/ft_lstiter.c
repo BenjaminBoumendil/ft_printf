@@ -6,13 +6,13 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 16:35:11 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/03 18:46:08 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 19:51:47 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void(*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	while (lst)
 	{

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 21:44:23 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/13 19:57:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 19:52:27 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 char			*ft_ltoa(long int n)
 {
 	char			*str;
