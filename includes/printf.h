@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:26:55 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 18:34:53 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,8 @@ typedef struct	s_handle
 }				t_handle;
 int				handle_special_cases(t_data *data, char **str);
 
-void			neg_numbertoken_zeroflag(char **str);
+void			neg_numbertoken_zeroflag(t_data *data, char **str);
+void			handle_precision(t_data *data, size_t len);
 void			handle_optc_padding(char c, size_t min_width);
 
 #endif

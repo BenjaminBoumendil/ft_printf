@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:27:17 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 18:36:33 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int         main(void)
     // assert(test_one("%S", L"我是一只猫。"), "\"%S\", L\"我是一只猫。\"");
 
     // "c" option test
+    // assert(test_one("%c", 0), "(\"%c\", 0)");
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%+c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%c", 49), "(\"%c\", 49)");
@@ -194,7 +195,7 @@ int         main(void)
     // assert(test_one("{%30d}", 10000), "(\"{%30d}\", 10000)");
     // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%3c}", 0), "(\"{%3c}\", 0)");
-    // assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
+    assert(test_one("{%05p}", 0), "(\"{%05p}\", 0)");
     // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
     // assert(test_one("{%-13p}", &strlen), "(\"{%-13p}\", &strlen)");
     // assert(test_one("{%-12p}", &strlen), "(\"{%-12p}\", &strlen)");
@@ -202,6 +203,10 @@ int         main(void)
     // assert(test_one("{%10Rewrhr%s}", "ok"), "(\"{%10R}\")");
     // assert(test_one("{%30S}", L"我是一只猫。"), "(\"{%30S}\", L\"我是一只猫。\")");
     // assert(test_one("{%-30S}", L"我是一只猫。"), "(\"{%-30S}\", L\"我是一只猫。\")");
+
+    // precision tests
+    assert(test_one("%.4d", 42), "(\"%.4d\", 42)");
+    assert(test_one("%15.4d", 42), "(\"%15.4d\", 42)");
 
     return (0);
 }
