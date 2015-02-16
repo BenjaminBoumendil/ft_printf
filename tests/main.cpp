@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 18:36:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 23:29:35 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static auto printf_call(const F & f, const char * format, Args... args)
     close(fds[1]);
     int ret = f(format, args...);
     fflush(stdout);
-    fcntl(fds[0], F_SETFL);
+    auto flags = fcntl(fds[0], F_GETFL);
+    fcntl(fds[0], F_SETFL, flags | O_NONBLOCK);
     auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
     dup2(saved_stdout, STDOUT_FILENO);
     write(1, "BUFF : ", 7);
@@ -74,6 +75,15 @@ static bool test_one(const char * format, Args... args)
     return printf_ret == ft_printf_ret;
 }
 
+template<class T>
+void        display_bit(T t)
+{
+    for(int i = sizeof(T) * 8 - 1; i >= 0; i--) {
+        std::cout << ((t >> i) & 1);
+    }
+    std::cout << std::endl;
+}
+
 #include <locale.h>
 #include <cstring>
 int         main(void)
@@ -85,6 +95,9 @@ int         main(void)
     } else {
     printf("Locale set to %s\n", local);
     }
+
+    // display_bit(L'米');
+
     // "s" option test
     // assert(test_one("test%s", 0), "(\"test%s\", \"NULL\")");
     // assert(test_one("%010s", "test"), "(\"%010s\", \"test\")");
@@ -112,8 +125,11 @@ int         main(void)
 
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
-    // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-    // assert(test_one("%S", L"我是一只猫。"), "\"%S\", L\"我是一只猫。\"");
+    // assert(test_one("%S", L"test"), "(\"%S\", \"test\")");
+    // assert(test_one("%S", 0), "(\"%S\", \"test\")");
+    // assert(test_one("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S",
+    // L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+    // L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", 0), "\"%S\", L\"我是一只猫。\"");
 
     // "c" option test
     // assert(test_one("%c", 0), "(\"%c\", 0)");
@@ -129,7 +145,7 @@ int         main(void)
     // assert(test_one("%C", L'猫'), "(\"%C\", L\'猫\')");
     // assert(test_one("%C", L'δ'), "(\"%C\", L\'δ\')");
     // assert(test_one("%+C", 0), "(\"%+C\", \'a\')");
-    // assert(test_one("%C", 0), "(\"%C\", \'a\')");
+    // assert(test_one("%C", 0), "(\"%C\", 0)");
     // assert(test_one("%hhC, %hhC", 0, L'米'), "(\"TEST%hhCTEST\", L\'米\')");
 
     // "%" option test
@@ -190,13 +206,13 @@ int         main(void)
     // assert(test_one("{%3c}", 0), "(\"{%03c}\", 0)");
 
     // "min_width" option test
-    // assert(test_one("{%10d}", 42), "(\"{%10d}\", 42)");
+    // assert(test_one("{%010d}", 42), "(\"{%10d}\", 42)");
     // assert(test_one("{%4d}", 10000), "(\"{%4d}\", 10000)");
     // assert(test_one("{%30d}", 10000), "(\"{%30d}\", 10000)");
     // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%3c}", 0), "(\"{%3c}\", 0)");
-    assert(test_one("{%05p}", 0), "(\"{%05p}\", 0)");
-    // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
+    assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
+    assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
     // assert(test_one("{%-13p}", &strlen), "(\"{%-13p}\", &strlen)");
     // assert(test_one("{%-12p}", &strlen), "(\"{%-12p}\", &strlen)");
     // assert(test_one("{%10Rqewgrehtrjytu}"), "(\"{%10R}\")");
@@ -205,8 +221,11 @@ int         main(void)
     // assert(test_one("{%-30S}", L"我是一只猫。"), "(\"{%-30S}\", L\"我是一只猫。\")");
 
     // precision tests
-    assert(test_one("%.4d", 42), "(\"%.4d\", 42)");
-    assert(test_one("%15.4d", 42), "(\"%15.4d\", 42)");
+    // assert(test_one("%.4d", 42), "(\"%.4d\", 42)");
+    // assert(test_one("%15.4d", 42), "(\"%15.4d\", 42)");
+    // assert(test_one("%4.15d", 42), "(\"%4.15d\", 42)");
+    // assert(test_one("%.4S", L"我是一只猫。"), "(\"%.4S\", \"我是一只猫。\")");
+    // assert(test_one("%05.2s", "test"), "(\"%05.2s\", \"test\")");
 
     return (0);
 }

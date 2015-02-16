@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 21:59:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:23:41 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 18:45:06 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,11 @@ char			*convert_wchar(t_data *data, int c)
 	char		*str;
 	size_t		len;
 
+	(void)data;
 	str2 = ft_itoa_base(c, "01");
 	len = ft_strlen(str2);
 	if (len <= 7)
-	{
-		display(data, (char*)&c);
-		free(str2);
-		return (0);
-	}
+		str = get_display_char(str2, "0xxxxxxx");
 	else if (len <= 11)
 		str = get_display_char(str2, "110xxxxx10xxxxxx");
 	else if (len <= 16)

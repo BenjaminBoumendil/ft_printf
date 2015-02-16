@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:58:48 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 22:43:26 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void			opt_s(t_data *data)
 	}
 	str = va_arg(*data->va, char *);
 	if (str)
+	{
+		str = ft_strdup(str);
 		display(data, str);
+		free(str);
+	}
 	else
 		display(data, "(null)");
 }
@@ -33,8 +37,10 @@ void			opt_S(t_data *data)
 	wchar_t		*wstr;
 	int			c;
 	char		*str;
+	char		*tmp;
+	char		*tmp2;
 
-	str = "";
+	str = ft_memalloc(0);
 	wstr = va_arg(*data->va, wchar_t *);
 	if (!wstr)
 	{
@@ -45,10 +51,15 @@ void			opt_S(t_data *data)
 	while (*wstr)
 	{
 		c = *wstr;
-		str = ft_strjoin(str, convert_wchar(data, c));
+		tmp = convert_wchar(data, c);
+		tmp2 = str;
+		str = ft_strjoin(tmp2, tmp);
+		free(tmp2);
+		free(tmp);
 		wstr++;
 	}
-	display(data, str);
+	if (*str)
+		display(data, str);
 	free(str);
 }
 

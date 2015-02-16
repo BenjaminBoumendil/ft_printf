@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 15:35:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/16 18:40:32 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 21:59:52 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static int	handle_chars(t_data *data, char **str)
 	{
 		if (!data->flag->zero && *ret == 's')
 			return (1);
-		if (*ret == 'c')
-			COUNT_CHAR(1);
+		COUNT_CHAR(1);
 	}
 	data->flag->plus = false;
 	return (0);
