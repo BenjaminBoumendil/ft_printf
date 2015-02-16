@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 16:03:51 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 16:06:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,7 @@ void			opt_p(t_data *data);
 void			opt_per(t_data *data);
 void			opt_x(t_data *data);
 void			opt_X(t_data *data);
-char			*get_display_char(char *str, char *b_mask);
-void			make_opt_s(t_data *data, int c);
+void			convert_wchar(t_data *data, int c);
 
 /*
 ** Display

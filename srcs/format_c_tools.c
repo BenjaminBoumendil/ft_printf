@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 21:59:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 20:00:03 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 14:29:25 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char		*feed_binary_string(char *str, char *b_mask)
 	return (tab);
 }
 
-char			*get_display_char(char *str, char *b_mask)
+static char		*get_display_char(char *str, char *b_mask)
 {
 	char		*final_str;
 	char		*tmp;
@@ -61,7 +61,7 @@ char			*get_display_char(char *str, char *b_mask)
 	return (final_str);
 }
 
-void			make_opt_s(t_data *data, int c)
+void			convert_wchar(t_data *data, int c)
 {
 	char		*str2;
 	char		*str;
