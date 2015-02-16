@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 22:53:20 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 14:28:44 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		opt_u(t_data *data)
 {
 	char			*str;
 
+	data->flag->plus = 0;
 	if (data->modifier->hh)
 		str = ft_itoa(va_arg(*data->va, unsigned int) % 256);
 	else

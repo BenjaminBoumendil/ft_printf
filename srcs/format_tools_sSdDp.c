@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 18:29:39 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 14:26:40 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			opt_S(t_data *data)
 	while (*wstr)
 	{
 		c = *wstr;
-		make_opt_s(data, c);
+		convert_wchar(data, c);
 		wstr++;
 	}
 }
@@ -80,6 +80,7 @@ void		opt_p(t_data *data)
 	char	*tmp;
 	size_t	c;
 
+	data->flag->plus = 0;
 	c = va_arg(*data->va, size_t);
 	tmp = ft_utoa_base(c, B_HEX);
 	str = ft_strjoin("0x", tmp);

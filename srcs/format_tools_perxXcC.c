@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 23:38:51 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 14:28:53 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,26 +61,7 @@ void			opt_c(t_data *data)
 void			opt_C(t_data *data)
 {
 	int			c;
-	char		*str;
-	char		*str2;
-	size_t		len;
 
 	c = va_arg(*data->va, wchar_t);
-	str2 = ft_itoa_base(c, "01");
-	len = ft_strlen(str2);
-	if (len <= 7)
-	{
-		display(data, (char*)&c);
-		free(str2);
-		return ;
-	}
-	else if (len <= 11)
-		str = get_display_char(str2, "110xxxxx10xxxxxx");
-	else if (len <= 16)
-		str = get_display_char(str2, "1110xxxx10xxxxxx10xxxxxx");
-	else
-		str = get_display_char(str2, "11110xxx10xxxxxx10xxxxxx10xxxxxx");
-	display(data, str);
-	free(str);
-	free(str2);
+	convert_wchar(data, c);
 }

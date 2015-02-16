@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 18:33:43 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 14:14:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,8 @@ int         main(void)
     // assert(test_one("%p", &str), "(\"%p\", &str)");
     // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
     // assert(test_one("%p", 0), "(\"%p\", 0)");
-    assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
+    // assert(test_one("{%-15p}\n", 0), "(\"{%-15p}\", 0)");
+    // assert(test_one("% p|%+p", 42, 42), "(\"% p|%+p\", 42, 42)");
 
     // "e" option test
     // assert(test_one("%e", 256455.42), "(\"%e\", 10.42)");
@@ -169,6 +170,7 @@ int         main(void)
     // assert(test_one("%+O", 0), "(\"%+O\", 0)");
     // assert(test_one("%+o", -42), "(\"%+o\", -42)");
     // assert(test_one("%+O", -42), "(\"%+O\", -42)");
+    assert(test_one("%o, %ho, %hho", -42, -42, -42), "(\"%o, %ho, %hho\", -42, -42, -42)");
 
     // "x" option test
     // assert(test_one("%x", 42), "(\"%x\", \"42\")");
