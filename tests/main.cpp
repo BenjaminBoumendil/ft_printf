@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 15:44:32 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:22:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int         main(void)
     // "S" option test
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", "test"), "(\"%S\", \"test\")");
-    // assert(test_one("%S", L"米"), "\"%S\", L\"米\"");
+    assert(test_one("%S", L"我是一只猫。"), "\"%S\", L\"我是一只猫。\"");
 
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");

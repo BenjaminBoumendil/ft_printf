@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 21:59:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 14:29:25 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:23:41 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static char		*get_display_char(char *str, char *b_mask)
 	tmp = ft_memalloc(ft_strlen(tab) / len);
 	while (c < len)
 	{
-		final_str[c] = (char)ft_atoi_base( \
-						ft_strncpy(tmp, &tab[c * 8], ft_strlen(tab) / len), "01");
+		final_str[c] = (char)ft_atoi_base(\
+					ft_strncpy(tmp, &tab[c * 8], ft_strlen(tab) / len), "01");
 		c++;
 	}
 	free(tmp);
@@ -61,7 +61,7 @@ static char		*get_display_char(char *str, char *b_mask)
 	return (final_str);
 }
 
-void			convert_wchar(t_data *data, int c)
+char			*convert_wchar(t_data *data, int c)
 {
 	char		*str2;
 	char		*str;
@@ -73,7 +73,7 @@ void			convert_wchar(t_data *data, int c)
 	{
 		display(data, (char*)&c);
 		free(str2);
-		return ;
+		return (0);
 	}
 	else if (len <= 11)
 		str = get_display_char(str2, "110xxxxx10xxxxxx");
@@ -81,7 +81,6 @@ void			convert_wchar(t_data *data, int c)
 		str = get_display_char(str2, "1110xxxx10xxxxxx10xxxxxx");
 	else
 		str = get_display_char(str2, "11110xxx10xxxxxx10xxxxxx10xxxxxx");
-	display(data, str);
-	free(str);
 	free(str2);
+	return (str);
 }

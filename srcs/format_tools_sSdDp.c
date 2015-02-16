@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 14:26:40 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:25:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void			opt_S(t_data *data)
 {
 	wchar_t		*wstr;
 	int			c;
+	char		*str;
 
+	str = "";
 	wstr = va_arg(*data->va, wchar_t *);
 	if (!wstr)
 	{
@@ -43,9 +45,11 @@ void			opt_S(t_data *data)
 	while (*wstr)
 	{
 		c = *wstr;
-		convert_wchar(data, c);
+		str = ft_strjoin(str, convert_wchar(data, c));
 		wstr++;
 	}
+	display(data, str);
+	free(str);
 }
 
 void			opt_d(t_data *data)
