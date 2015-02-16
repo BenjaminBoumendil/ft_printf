@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 18:45:14 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 21:34:34 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			opt_X(t_data *data)
 	else
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_HEXM);
 	if (data->flag->sharp && *str != '0')
-	{ 
+	{
 		tmp = str;
 		str = ft_strjoin("0x", str);
 		free(tmp);
