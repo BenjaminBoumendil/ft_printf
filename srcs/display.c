@@ -6,13 +6,13 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/16 22:47:26 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 16:34:11 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void		precision_formatting(t_data *data, char *str)
+static void		string_precision_formatting(t_data *data, char *str)
 {
 	size_t	len;
 
@@ -27,9 +27,9 @@ static size_t	display_padding(char c, size_t len, t_data *data)
 	size_t	i;
 	size_t	count;
 
-	i = 0;
 	if (len > data->min_width && len > data->precision)
 		return (0);
+	i = 0;
 	count = (data->min_width > data->precision) ? (data->min_width - len)
 												: (data->precision - len);
 	while (i < count)
@@ -44,7 +44,7 @@ static size_t	display_padding(char c, size_t len, t_data *data)
 
 static void		display_plus(t_data *data, char *str)
 {
-	if (ft_strchr("dDoOuUxX", data->opt) && data->flag->plus && str[0] != '-')
+	if (ft_strchr("dDoOuUxXi", data->opt) && data->flag->plus && str[0] != '-')
 	{
 		ft_putchar('+');
 		COUNT_CHAR(1);
@@ -68,7 +68,7 @@ void			display(t_data *data, char *str)
 	size_t	len;
 
 	if (ft_strchr("sS", data->opt) && data->precision > 0)
-		precision_formatting(data, str);
+		string_precision_formatting(data, str);
 	if (!(len = ft_strlen(str)))
 		len = 1;
 	if (handle_special_cases(data, &str) == 1)

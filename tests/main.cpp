@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 23:29:35 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 16:34:25 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,8 +211,8 @@ int         main(void)
     // assert(test_one("{%30d}", 10000), "(\"{%30d}\", 10000)");
     // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%3c}", 0), "(\"{%3c}\", 0)");
-    assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
-    assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
+    // assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
+    // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
     // assert(test_one("{%-13p}", &strlen), "(\"{%-13p}\", &strlen)");
     // assert(test_one("{%-12p}", &strlen), "(\"{%-12p}\", &strlen)");
     // assert(test_one("{%10Rqewgrehtrjytu}"), "(\"{%10R}\")");
@@ -226,6 +226,8 @@ int         main(void)
     // assert(test_one("%4.15d", 42), "(\"%4.15d\", 42)");
     // assert(test_one("%.4S", L"我是一只猫。"), "(\"%.4S\", \"我是一只猫。\")");
     // assert(test_one("%05.2s", "test"), "(\"%05.2s\", \"test\")");
+    assert(test_one("%15.4d", 242), "(\"%15.4d\", 242)");
+    assert(test_one("%15.4d", 424242), "(\"%15.4d\", 424242)");
 
     return (0);
 }
