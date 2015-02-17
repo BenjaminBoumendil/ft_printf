@@ -18,5 +18,6 @@ int main()
 
 	ADD_TESTS
 
-	return(mt_exec(mt));
+	mt_exec(mt);
+	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 15:35:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/16 15:28:50 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/16 21:59:52 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	handle_neg_numbers(t_data *data, char **str)
 {
 	if (data->flag->zero)
-		neg_numbertoken_zeroflag(str);
+		neg_numbertoken_zeroflag(data, str);
 }
 
 static int	handle_numbers(t_data *data, char **str)
@@ -35,6 +35,7 @@ static int	handle_chars(t_data *data, char **str)
 	{
 		if (!data->flag->zero && *ret == 's')
 			return (1);
+		COUNT_CHAR(1);
 	}
 	data->flag->plus = false;
 	return (0);
@@ -42,8 +43,9 @@ static int	handle_chars(t_data *data, char **str)
 
 static int	handle_other(t_data *data, char **str)
 {
-	(void)data;
 	(void)str;
+	if (ft_strchr("p", data->opt) && data->flag->zero)
+		data->flag->minus = true;
 	return (0);
 }
 

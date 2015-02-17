@@ -134,7 +134,7 @@ SRC				=	$(LIB_SRC)							\
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
 COMPILER		=	gcc
-CFLAGS			=	-c -Wall -Wextra -Werror -O3 -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(LIB_INCLUDE_DIR)
+CFLAGS			=	-c -Wall -Wextra -Werror -g3 -O3 -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(LIB_INCLUDE_DIR)
 
 all: $(NAME)
 

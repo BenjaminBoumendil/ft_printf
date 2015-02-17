@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 21:32:12 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 23:33:41 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void			opt_s(t_data *data)
 	}
 	str = va_arg(*data->va, char *);
 	if (str)
+	{
+		str = ft_strdup(str);
 		display(data, str);
+		free(str);
+	}
 	else
 		display(data, "(null)");
 }
