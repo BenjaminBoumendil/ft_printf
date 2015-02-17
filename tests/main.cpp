@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 18:54:38 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/16 21:26:12 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,9 +126,9 @@ int         main(void)
     // assert(test_one("%lS", "test"), "(\"%lS\", \"test\")");
     // assert(test_one("%S", L"test"), "(\"%S\", \"test\")");
     // assert(test_one("%S", 0), "(\"%S\", \"test\")");
-    assert(test_one("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S",
-    L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
-    L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", 0), "\"%S\", L\"我是一只猫。\"");
+    // assert(test_one("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S",
+    // L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+    // L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", 0), "\"%S\", L\"我是一只猫。\"");
 
     // "c" option test
     // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
