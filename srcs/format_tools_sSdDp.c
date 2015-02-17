@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 23:33:41 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 22:32:00 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			opt_S(t_data *data)
 	char		*tmp2;
 
 	wstr = va_arg(*data->va, wchar_t *);
+	// printf("\nwstr: %S\n", wstr);
 	if (!wstr)
 	{
 		COUNT_CHAR(6);
@@ -52,10 +53,12 @@ void			opt_S(t_data *data)
 		tmp = convert_wchar(data, (int)*wstr);
 		tmp2 = str;
 		str = ft_strjoin(tmp2, tmp);
+		// printf("%s\n", str);
 		free(tmp2);
 		free(tmp);
 		wstr++;
 	}
+	// printf("opt_S str: %s\n", str);
 	if (*str)
 		display(data, str);
 	free(str);

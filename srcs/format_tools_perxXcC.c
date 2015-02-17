@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_perxXcC.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 21:34:34 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/17 21:51:03 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ void			opt_c(t_data *data)
 		return ;
 	}
 	c = va_arg(*data->va, int);
+	if (c == 0)
+	{
+		write(1, &c, 1);
+		COUNT_CHAR(1);
+	}
 	str[0] = (char)c;
 	str[1] = '\0';
 	display(data, str);
@@ -80,6 +85,11 @@ void			opt_C(t_data *data)
 	char		*str;
 
 	c = va_arg(*data->va, wchar_t);
+	if (c == 0)
+	{
+		write(1, &c, 1);
+		COUNT_CHAR(1);
+	}
 	str = convert_wchar(data, c);
 	if (str)
 	{

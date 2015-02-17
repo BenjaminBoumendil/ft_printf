@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 18:34:53 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 18:09:33 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ typedef enum	e_bool
 # define BOOL typedef t_bool bool
 
 BOOL;
+
+/*
+** Macro
+*/
+# define NUMBER_OPT "dDoOuUxXi"
 
 /*
 ** Flags

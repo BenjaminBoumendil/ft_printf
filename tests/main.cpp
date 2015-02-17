@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/17 17:07:36 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 22:05:58 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,25 @@ template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
     char buff[BUFF_MAX_SIZE] = {0};
-    int fds[2];
-    int saved_stdout;
+    // int fds[2];
+    // int saved_stdout;
 
-    fflush(stdout);
-    pipe(fds);
-    saved_stdout = dup(STDOUT_FILENO);
-    dup2(fds[1], STDOUT_FILENO);
-    close(fds[1]);
+    // fflush(stdout);
+    // pipe(fds);
+    // saved_stdout = dup(STDOUT_FILENO);
+    // dup2(fds[1], STDOUT_FILENO);
+    // close(fds[1]);
     int ret = f(format, args...);
-    fflush(stdout);
-    auto flags = fcntl(fds[0], F_GETFL);
-    fcntl(fds[0], F_SETFL, flags | O_NONBLOCK);
-    auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
-    dup2(saved_stdout, STDOUT_FILENO);
-    write(1, "BUFF : ", 7);
-    write(1, buff, read_ret);
+    // fflush(stdout);
+    // auto flags = fcntl(fds[0], F_GETFL);
+    // fcntl(fds[0], F_SETFL, flags | O_NONBLOCK);
+    // auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
+    // dup2(saved_stdout, STDOUT_FILENO);
+    // write(1, "BUFF : ", 7);
+    // write(1, buff, read_ret);
     std::cout << "\nRET  : " << ret << std::endl;
 
-    return std::make_pair(std::string(buff, read_ret), ret);
+    return std::make_pair(std::string(buff), ret);
 }
 
 template <class... Args>
@@ -226,9 +226,13 @@ int         main(void)
     // assert(test_one("%4.15d", 42), "(\"%4.15d\", 42)");
     // assert(test_one("%.4S", L"我是一只猫。"), "(\"%.4S\", \"我是一只猫。\")");
     // assert(test_one("%05.2s", "test"), "(\"%05.2s\", \"test\")");
-    assert(test_one("%15.4d", 242), "(\"%15.4d\", 242)");
-    assert(test_one("%15.4d", 424242), "(\"%15.4d\", 424242)");
-    assert(test_one("%15.4d", -42), "(\"%15.4d\", -42)");
+    // assert(test_one("%15.4d", 424242), "(\"%15.4d\", 424242)");
+    // assert(test_one("%15.4d", -42), "(\"%15.4d\", -42)");
+    // assert(test_one("%+.4d", 242), "(\"%15.4d\", 242)");
+    // assert(test_one("%.3d", -42), "(\"%15.4d\", 242)");
+    assert(test_one("%C%%%S", L'該', L"لحم خنزير"), "(\"%15.4d\", 242)");
+    assert(test_one("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير"), "(\"%15.4d\", 242)");
 
+    free(local);
     return (0);
 }
