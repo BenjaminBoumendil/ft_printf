@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/16 22:47:26 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 16:51:47 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static size_t	display_padding(char c, size_t len, t_data *data)
 
 static void		display_plus(t_data *data, char *str)
 {
-	if (ft_strchr("dDoOuUxX", data->opt) && data->flag->plus && str[0] != '-')
+	if (ft_strchr("dDoOuUxXi", data->opt) && data->flag->plus && str[0] != '-')
 	{
 		ft_putchar('+');
 		COUNT_CHAR(1);
