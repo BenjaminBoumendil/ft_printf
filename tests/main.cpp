@@ -6,15 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/17 16:34:25 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 16:56:19 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.hpp"
-
-static const auto BUFF_MAX_SIZE = 1024;
-
-void assert(bool passed, const std::string & description)
+assed, const std::string & description)
 {
     bool verbose = true;
     if (verbose)
