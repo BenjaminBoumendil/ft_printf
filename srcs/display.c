@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/17 16:56:07 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 17:48:39 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static size_t	display_padding(char c, size_t len, t_data *data)
 												: (data->precision - len);
 	while (i < count)
 	{
-		if (ft_strchr("dDoOuUxX", data->opt) && data->precision > 0)
-			c = (data->precision > ((count - i) + 1)) ? '0' : ' ';
-		ft_putchar(c);
 		i++;
+		if (ft_strchr("dDoOuUxX", data->opt) && data->precision > 0)
+			c = (data->precision > ((count - i) + len)) ? '0' : ' ';
+		ft_putchar(c);
 	}
 	return (i);
 }

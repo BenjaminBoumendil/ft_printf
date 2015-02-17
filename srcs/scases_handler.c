@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 15:35:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/16 21:59:52 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 17:16:52 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	handle_neg_numbers(t_data *data, char **str)
 {
-	if (data->flag->zero)
+	if (data->flag->zero && data->precision == 0)
 		neg_numbertoken_zeroflag(data, str);
 }
 
@@ -55,7 +55,7 @@ int			handle_special_cases(t_data *data, char **str)
 	const t_handle	token_tab[] =
 
 	{                                                         \
-	{ "dDoOuUxX", handle_numbers }, { "sScC", handle_chars }, \
+	{ "dDoOuUxXi", handle_numbers }, { "sScC", handle_chars }, \
 	{ "%p", handle_other }};
 	c = 0;
 	while (c < (sizeof(token_tab) / sizeof(t_handle)))
