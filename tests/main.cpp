@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/17 22:05:58 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/18 16:42:06 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int         main(void)
 
     // "c" option test
     // assert(test_one("%c", 0), "(\"%c\", 0)");
-    // assert(test_one("%c", 'a'), "(\"%c\", \'a\')");
+    // assert(test_one("%c", 'c'), "(\"%c\", \'c\')");
     // assert(test_one("%+c", 'a'), "(\"%c\", \'a\')");
     // assert(test_one("%c", 49), "(\"%c\", 49)");
     // assert(test_one("%c", "aa"), "(\"%c\", \"aa\")");
@@ -206,10 +206,11 @@ int         main(void)
     // assert(test_one("{%3c}", 0), "(\"{%03c}\", 0)");
 
     // "min_width" option test
-    // assert(test_one("{%010d}", 42), "(\"{%10d}\", 42)");
+    // assert(test_one("{%10d}", 42), "(\"{%10d}\", 42)");
+    // assert(test_one("{%010d}", 42), "(\"{%010d}\", 42)");
+    assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%4d}", 10000), "(\"{%4d}\", 10000)");
     // assert(test_one("{%30d}", 10000), "(\"{%30d}\", 10000)");
-    // assert(test_one("{%10d}", -42), "(\"{%10d}\", -42)");
     // assert(test_one("{%3c}", 0), "(\"{%3c}\", 0)");
     // assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
     // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
@@ -230,8 +231,6 @@ int         main(void)
     // assert(test_one("%15.4d", -42), "(\"%15.4d\", -42)");
     // assert(test_one("%+.4d", 242), "(\"%15.4d\", 242)");
     // assert(test_one("%.3d", -42), "(\"%15.4d\", 242)");
-    assert(test_one("%C%%%S", L'該', L"لحم خنزير"), "(\"%15.4d\", 242)");
-    assert(test_one("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير"), "(\"%15.4d\", 242)");
 
     free(local);
     return (0);
