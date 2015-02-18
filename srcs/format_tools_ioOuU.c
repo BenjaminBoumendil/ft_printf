@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_ioOuU.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/16 15:53:42 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/18 18:14:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void		opt_o(t_data *data)
 	len = ft_strlen(str);
 	if (data->flag->sharp && data->precision <= len)
 		data->precision = len + 1;
+	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	{
+		free(str);
+		return ;
+	}
 	display(data, str);
 	free(str);
 }
@@ -42,6 +47,11 @@ void		opt_O(t_data *data)
 	len = ft_strlen(str);
 	if (data->flag->sharp && data->precision <= len + 1)
 		data->precision = len + 1;
+	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	{
+		free(str);
+		return ;
+	}
 	display(data, str);
 	free(str);
 }
@@ -55,6 +65,11 @@ void		opt_u(t_data *data)
 		str = ft_itoa(va_arg(*data->va, unsigned int) % 256);
 	else
 		str = ft_ultoa(va_arg(*data->va, unsigned long));
+	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	{
+		free(str);
+		return ;
+	}
 	display(data, str);
 	free(str);
 }
@@ -66,6 +81,11 @@ void		opt_U(t_data *data)
 
 	i = va_arg(*data->va, long);
 	str = ft_ultoa(i);
+	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	{
+		free(str);
+		return ;
+	}
 	display(data, str);
 	free(str);
 }

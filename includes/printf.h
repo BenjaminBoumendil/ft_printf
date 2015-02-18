@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/17 18:09:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/18 21:01:49 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct	s_data
 	t_modifier	*modifier;
 	size_t		min_width;
 	size_t		precision;
+	bool		precision_called;
 	char		opt;
 }				t_data;
 

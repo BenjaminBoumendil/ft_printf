@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 23:24:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/17 22:23:26 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/18 18:08:46 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void		parse_precision(t_data *data)
 	if (*data->format == '.')
 	{
 		data->format++;
+		data->precision_called = true;
 		data->precision = get_integer(data);
 	}
 }

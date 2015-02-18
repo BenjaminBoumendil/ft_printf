@@ -6,37 +6,42 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/18 16:46:09 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/18 21:58:20 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void		check_for_neg_sign(char **str)
+static void		move_sign(char **str, char sign)
 {
 	char	*new_str;
-	char	*tmp;
+	char	*save;
 	size_t	i;
 	size_t	y;
 
-	if (ft_strchr(&(*str)[1], '-'))
+	i = 0;
+	y = 0;
+	save = *str;
+	new_str = ft_memalloc(ft_strlen(*str));
+	while (str[0][y])
 	{
-		i = 0;
-		y = 0;
-		tmp = *str;
-		new_str = ft_memalloc(ft_strlen(*str));
-		while (str[0][y])
-		{
-			if (str[0][y] == '-')
-				y++;
-			new_str[i] = str[0][y];
-			i++;
+		if (str[0][y] == sign)
 			y++;
-		}
-		*str = ft_strjoin("-", new_str);
-		free(new_str);
-		free(tmp);
+		new_str[i] = str[0][y];
+		i++;
+		y++;
 	}
+	*str = ft_strjoin(&sign, new_str);
+	free(new_str);
+	free(save);
+}
+
+static void		check_for_sign(char **str)
+{
+	if (ft_strchr(&(*str)[1], '-'))
+		move_sign(str, '-');
+	else if (ft_strchr(&(*str)[1], '+'))
+		move_sign(str, '+');
 }
 
 static void		display_null(t_data *data, char c_null)
@@ -54,7 +59,7 @@ static char		*fill_padding_char(char c, size_t min_width, size_t len)
 	size_t	i;
 
 	i = 0;
-	new_str = ft_memalloc(len + 1);
+	new_str = ft_memalloc(min_width + 1);
 	while (i < (min_width - len))
 	{
 		new_str[i] = c;
@@ -65,51 +70,91 @@ static char		*fill_padding_char(char c, size_t min_width, size_t len)
 
 static void		display_padding(t_data *data, char c, size_t len, char **str, int rev)
 {
-	char	*tmp;
+	char	*save;
 
 	if (len < data->min_width)
 	{
-		tmp = *str;
-		if (!rev)
+		save = *str;
+		if (!rev && !data->flag->space)
 			*str = ft_strjoin(fill_padding_char(c, data->min_width, len), *str);
 		else
 			*str = ft_strjoin(*str, fill_padding_char(c, data->min_width, len));
-		free(tmp);
+		free(save);
 	}
 }
 
-static void		display_minus(t_data *data, char **str, size_t len)
+static void		display_rev_padding(t_data *data, char **str, size_t len)
 {
 	char	c;
 
 	c = ' ';
-	if (data->flag->zero && ft_strchr("p", data->opt))
+	if (!data->flag->minus && ft_strchr("p", data->opt))
 		c = '0';
 	if (data->min_width > len)
 		display_padding(data, c, len, str, 1);
 }
 
+static void		handle_padding(t_data *data, char **new_str, size_t len)
+{
+	if (data->flag->minus || (data->opt == 'p' && data->flag->zero))
+		display_rev_padding(data, new_str, len);
+	else
+	{
+		if (data->flag->zero && data->opt != 'o')
+			display_padding(data, '0', len, new_str, 0);
+		else
+			display_padding(data, ' ', len, new_str, 0);
+	}
+	if (ft_strchr(NUMBER_OPT, data->opt) && data->flag->zero)
+		check_for_sign(new_str);
+}
+
 static void		display_space(t_data *data, char **str)
 {
-	char	*tmp;
+	char	*save;
 
 	if (ft_strchr("di", data->opt) && data->flag->space &&
 									(*str[0] != '-' && *str[0] != '+'))
 	{
-		tmp = *str;
+		save = *str;
 		*str = ft_strjoin(" ", *str);
-		free(tmp);
+		free(save);
 	}
 }
 
 static void		display_plus(t_data *data, char **str)
 {
-	char	*tmp;
+	char	*save;
 
-	if (ft_strchr(NUMBER_OPT, data->opt) && data->flag->plus && *str[0] != '-')
+	if (ft_strchr("dDuUxXi", data->opt) && data->flag->plus && *str[0] != '-')
 	{
-		tmp = *str;
+		save = *str;
 		*str = ft_strjoin("+", *str);
+		free(save);
+	}
+}
+
+static void		pointer_precision_formatting(size_t precision, char **str)
+{
+	char	*new_str;
+	char	*save;
+	char	*tmp;
+	char	*value;
+	size_t	i;
+
+	if (ft_strlen(*str) < precision)
+	{
+		i = 0;
+		save = *str;
+		value = ft_strsplit(*str, 'x')[1];
+		new_str = ft_memalloc(precision);
+		while (i < precision - ft_strlen(value))
+			new_str[i++] = '0';
+		tmp = ft_strjoin("0x", new_str);
+		*str = ft_strjoin(tmp, value);
+		free(new_str);
+		free(value);
+		free(save);
 		free(tmp);
 	}
 }
@@ -137,10 +182,11 @@ static char		*number_precision_formatting(size_t precision, char **str)
 			new_str[i++] = '0';
 			c++;
 		}
-		while (**str)
+		c = 0;
+		while ((*str)[c])
 		{
-			new_str[i++] = **str;
-			(*str)++;
+			new_str[i++] = (*str)[c];
+			c++;
 		}
 		// free(*str);
 		return (new_str);
@@ -160,12 +206,14 @@ static void		string_precision_formatting(size_t precision, char *str)
 
 static void		display_precision(t_data *data, char **str)
 {
-	if (data->precision > 0)
+	if (data->precision_called)
 	{
 		if (ft_strchr("sS", data->opt))
 			string_precision_formatting(data->precision, *str);
 		else if (ft_strchr(NUMBER_OPT, data->opt))
 			*str = number_precision_formatting(data->precision, str);
+		else if (ft_strchr("p", data->opt))
+			pointer_precision_formatting(data->precision, str);
 	}
 }
 
@@ -180,21 +228,13 @@ void			display(t_data *data, char *str)
 	display_precision(data, &new_str);
 	display_plus(data, &new_str);
 	display_space(data, &new_str);
-	len = !ft_strlen(new_str) ? 1 : ft_strlen(new_str);
-	if (data->flag->minus)
-		display_minus(data, &new_str, len);
+	if (!*new_str && data->precision_called)
+		len = ft_strlen(new_str);
 	else
-	{
-		if (data->flag->zero && data->opt != 'o')
-			display_padding(data, '0', len, &new_str, 0);
-		else
-			display_padding(data, ' ', len, &new_str, 0);
-	}
-	if (ft_strchr(NUMBER_OPT, data->opt) && data->flag->zero)
-		check_for_neg_sign(&new_str);
+		len = !ft_strlen(new_str) ? 1 : ft_strlen(new_str);
+	handle_padding(data, &new_str, len);
 	ft_putstr(new_str);
-	if (is_null)
-		display_null(data, '\0');
+	is_null == true ? display_null(data, '\0') : (void)is_null;
 	COUNT_CHAR(ft_strlen(new_str));
 	free(new_str);
 }
