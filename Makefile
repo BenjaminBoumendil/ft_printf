@@ -120,9 +120,9 @@ LIB_SRC			=	ft_memset.c				\
 SRC				=	$(LIB_SRC)							\
 					printf.c							\
 					read_format.c						\
-					format_tools_sSdDp.c				\
-					format_tools_ioOuU.c				\
-					format_tools_perxXcC.c				\
+					format_tools_sdp.c				\
+					format_tools_iou.c				\
+					format_tools_perxc.c				\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\

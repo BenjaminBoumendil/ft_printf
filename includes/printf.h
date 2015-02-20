@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:24:09 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:48:07 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,19 @@ void			handle_padding_with_no_option(t_data *data);
 ** Format tools
 */
 void			opt_s(t_data *data);
-void			opt_S(t_data *data);
+void			opt_up_s(t_data *data);
 void			opt_d(t_data *data);
-void			opt_D(t_data *data);
+void			opt_up_d(t_data *data);
 void			opt_c(t_data *data);
-void			opt_C(t_data *data);
+void			opt_up_c(t_data *data);
 void			opt_o(t_data *data);
-void			opt_O(t_data *data);
+void			opt_up_o(t_data *data);
 void			opt_u(t_data *data);
-void			opt_U(t_data *data);
+void			opt_up_u(t_data *data);
 void			opt_p(t_data *data);
 void			opt_per(t_data *data);
 void			opt_x(t_data *data);
-void			opt_X(t_data *data);
+void			opt_up_x(t_data *data);
 char			*convert_wchar(t_data *data, int c);
 
 /*

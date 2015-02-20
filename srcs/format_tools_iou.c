@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 17:31:46 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:47:48 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		opt_o(t_data *data)
 	free(str);
 }
 
-void		opt_O(t_data *data)
+void		opt_up_o(t_data *data)
 {
 	char	*str;
 	size_t	len;
@@ -76,7 +76,7 @@ void		opt_u(t_data *data)
 	free(str);
 }
 
-void		opt_U(t_data *data)
+void		opt_up_u(t_data *data)
 {
 	char		*str;
 	long int	i;
