@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/18 18:15:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 17:31:34 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void			opt_x(t_data *data)
 		str = ft_strjoin("0x", str);
 		free(tmp);
 	}
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;
@@ -59,7 +60,8 @@ void			opt_X(t_data *data)
 		str = ft_strjoin("0x", str);
 		free(tmp);
 	}
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;

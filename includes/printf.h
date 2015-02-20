@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/18 21:01:49 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 18:32:07 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ BOOL;
 ** Macro
 */
 # define NUMBER_OPT "dDoOuUxXi"
-
+# define MOST_SIGNIFICANT_BIT_MASK (1 << sizeof(char) * 8)
 /*
 ** Flags
 */

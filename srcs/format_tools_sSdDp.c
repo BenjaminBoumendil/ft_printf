@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/18 21:56:09 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 18:38:20 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void			opt_d(t_data *data)
 		str = ft_itoa((char)va_arg(*data->va, int));
 	else
 		str = ft_itoa(va_arg(*data->va, int));
-	if ((data->precision_called) && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;
@@ -88,7 +89,8 @@ void			opt_D(t_data *data)
 
 	i = va_arg(*data->va, long);
 	str = ft_ltoa(i);
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;

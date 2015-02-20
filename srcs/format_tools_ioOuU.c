@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/18 18:14:43 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 17:31:46 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void		opt_o(t_data *data)
 	len = ft_strlen(str);
 	if (data->flag->sharp && data->precision <= len)
 		data->precision = len + 1;
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;
@@ -47,7 +48,8 @@ void		opt_O(t_data *data)
 	len = ft_strlen(str);
 	if (data->flag->sharp && data->precision <= len + 1)
 		data->precision = len + 1;
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;
@@ -81,7 +83,8 @@ void		opt_U(t_data *data)
 
 	i = va_arg(*data->va, long);
 	str = ft_ultoa(i);
-	if (data->precision_called && (ft_strlen(str) == 1 && str[0] == '0'))
+	if ((data->precision_called && data->precision == 0)
+		&& (ft_strlen(str) == 1 && str[0] == '0'))
 	{
 		free(str);
 		return ;

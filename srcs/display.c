@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 13:13:37 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/18 21:58:20 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 18:37:51 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static void		handle_padding(t_data *data, char **new_str, size_t len)
 		display_rev_padding(data, new_str, len);
 	else
 	{
-		if (data->flag->zero && data->opt != 'o')
+		if (!data->precision && data->flag->zero && data->opt != 'o')
 			display_padding(data, '0', len, new_str, 0);
 		else
 			display_padding(data, ' ', len, new_str, 0);
@@ -159,39 +159,68 @@ static void		pointer_precision_formatting(size_t precision, char **str)
 	}
 }
 
-static char		*number_precision_formatting(size_t precision, char **str)
+static void		number_precision_formatting(size_t precision, char **str)
 {
 	char	*new_str;
+	char	*save;
 	size_t	len;
 	size_t	i;
 	size_t	c;
 
 	i = 0;
 	c = 0;
-	len = (*str[0] == '-') ? ft_strlen(*str) - 1 : ft_strlen(*str);
+	if (!ft_strlen(*str))
+		len = 1;
+	else
+		len = (*str[0] == '-') ? ft_strlen(*str) - 1 : ft_strlen(*str);
 	if (len < precision)
 	{
-		new_str = ft_memalloc((len + precision) + 1);
+		save = *str;
+		new_str = (*str[i] == '-') ? ft_memalloc(precision + 2)
+									: ft_memalloc(precision + 1);
 		if (*str[i] == '-')
 		{
 			new_str[i++] = '-';
 			(*str)++;
 		}
-		while (c < (precision - len))
-		{
+		while (c++ < (precision - len))
 			new_str[i++] = '0';
-			c++;
-		}
 		c = 0;
 		while ((*str)[c])
-		{
-			new_str[i++] = (*str)[c];
-			c++;
-		}
-		// free(*str);
-		return (new_str);
+			new_str[i++] = (*str)[c++];
+		*str = ft_strjoin("", new_str);
+		free(save);
+		free(new_str);
 	}
-	return (*str);
+}
+
+static void		Sopt_precision_formatting(size_t precision, char *str)
+{
+	char	c;
+	size_t	len;
+	size_t	i;
+	size_t	j;
+
+	len = ft_strlen(str);
+	if (len < precision)
+		return ;
+	i = 0;
+	while (i < precision)
+	{
+		c = *str;
+		j = 0;
+		while ((c & MOST_SIGNIFICANT_BIT_MASK) == MOST_SIGNIFICANT_BIT_MASK)
+		{
+			c <<= 1;
+			j++;
+		}
+		j = (!j ? 1 : j);
+		if (precision - i >= j)
+			i += j;
+		else
+			break ;
+	}
+	str[i] = '\0';
 }
 
 static void		string_precision_formatting(size_t precision, char *str)
@@ -208,11 +237,13 @@ static void		display_precision(t_data *data, char **str)
 {
 	if (data->precision_called)
 	{
-		if (ft_strchr("sS", data->opt))
+		if (ft_strchr("s", data->opt) && data->opt)
 			string_precision_formatting(data->precision, *str);
-		else if (ft_strchr(NUMBER_OPT, data->opt))
-			*str = number_precision_formatting(data->precision, str);
-		else if (ft_strchr("p", data->opt))
+		else if (ft_strchr("S", data->opt) && data->opt)
+			Sopt_precision_formatting(data->precision, *str);
+		else if (ft_strchr(NUMBER_OPT, data->opt) && data->opt)
+			number_precision_formatting(data->precision, str);
+		else if (ft_strchr("p", data->opt) && data->opt)
 			pointer_precision_formatting(data->precision, str);
 	}
 }
@@ -228,13 +259,15 @@ void			display(t_data *data, char *str)
 	display_precision(data, &new_str);
 	display_plus(data, &new_str);
 	display_space(data, &new_str);
-	if (!*new_str && data->precision_called)
+	if (!*new_str && data->precision_called && ft_strchr("sS", data->opt)
+		&& data->opt)
 		len = ft_strlen(new_str);
 	else
 		len = !ft_strlen(new_str) ? 1 : ft_strlen(new_str);
 	handle_padding(data, &new_str, len);
 	ft_putstr(new_str);
-	is_null == true ? display_null(data, '\0') : (void)is_null;
+	if (is_null == true)
+		display_null(data, '\0');
 	COUNT_CHAR(ft_strlen(new_str));
 	free(new_str);
 }
