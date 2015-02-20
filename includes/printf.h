@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 18:32:07 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:24:09 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,12 @@ char			*convert_wchar(t_data *data, int c);
 ** Display
 */
 void			display(t_data *data, char *str);
+void			display_precision(t_data *data, char **str);
+void			handle_padding(t_data *data, char **new_str, size_t len);
+void			check_for_sign(char **str);
+void			display_null(t_data *data, char c_null);
+void			display_space(t_data *data, char **str);
+void			display_plus(t_data *data, char **str);
 
 /*
 ** Special cases handling

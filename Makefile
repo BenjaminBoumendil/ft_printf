@@ -126,6 +126,9 @@ SRC				=	$(LIB_SRC)							\
 					parser.c							\
 					parser_tools.c						\
 					display.c							\
+					display_padding.c					\
+					display_precision.c					\
+					display_tools.c						\
 					format_c_tools.c					\
 					scases_handler.c					\
 					number_handling.c					\
