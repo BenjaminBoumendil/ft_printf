@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_tools_ioOuU.c                               :+:      :+:    :+:   */
+/*   format_tools_iou.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 20:52:10 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:47:48 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:52:42 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void		opt_o(t_data *data)
 	if (data->modifier->hh)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long int) % 256, B_OCT);
 	else if (data->modifier->h)
-		str = ft_utoa_base((unsigned short)va_arg(*data->va, unsigned int), B_OCT);
+		str = ft_utoa_base((unsigned short)va_arg(*data->va, unsigned int),
+		B_OCT);
 	else if (data->modifier->l || data->modifier->ll || data->modifier->j ||
 				data->modifier->z)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_OCT);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_tools_perxXcC.c                             :+:      :+:    :+:   */
+/*   format_tools_perxc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:48:06 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:53:05 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		opt_per(t_data *data)
 	display(data, "%");
 }
 
-void			opt_x(t_data *data)
+void		opt_x(t_data *data)
 {
 	char	*str;
 	char	*tmp;
@@ -44,7 +44,7 @@ void			opt_x(t_data *data)
 	free(str);
 }
 
-void			opt_up_x(t_data *data)
+void		opt_up_x(t_data *data)
 {
 	char	*str;
 	char	*tmp;
@@ -70,7 +70,7 @@ void			opt_up_x(t_data *data)
 	free(str);
 }
 
-void			opt_c(t_data *data)
+void		opt_c(t_data *data)
 {
 	char	str[2];
 	int		c;
@@ -86,7 +86,7 @@ void			opt_c(t_data *data)
 	display(data, str);
 }
 
-void			opt_up_c(t_data *data)
+void		opt_up_c(t_data *data)
 {
 	int			c;
 	char		*str;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_tools_sSdDp.c                               :+:      :+:    :+:   */
+/*   format_tools_sdp.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 18:18:28 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:48:00 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/20 19:53:15 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void			opt_s(t_data *data)
+void		opt_s(t_data *data)
 {
 	char	*str;
 
@@ -32,7 +32,7 @@ void			opt_s(t_data *data)
 		display(data, "(null)");
 }
 
-void			opt_up_s(t_data *data)
+void		opt_up_s(t_data *data)
 {
 	wchar_t		*wstr;
 	char		*str;
@@ -61,7 +61,7 @@ void			opt_up_s(t_data *data)
 	free(str);
 }
 
-void			opt_d(t_data *data)
+void		opt_d(t_data *data)
 {
 	char	*str;
 
@@ -82,7 +82,7 @@ void			opt_d(t_data *data)
 	free(str);
 }
 
-void			opt_up_d(t_data *data)
+void		opt_up_d(t_data *data)
 {
 	char		*str;
 	long int	i;
