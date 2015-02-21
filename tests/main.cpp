@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:18:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/21 17:52:20 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,11 @@ int         main(void)
     // assert(test_one("%+o", -42), "(\"%+o\", -42)");
     // assert(test_one("%+O", -42), "(\"%+O\", -42)");
     // assert(test_one("%o, %ho, %hho", -42, -42, -42), "(\"%o, %ho, %hho\", -42, -42, -42)");
+    // assert(test_one("%#o", 42), "(\"%#o\", 42)");
+    assert(test_one("%#.O", 0), "(\"%#.O\", 0)");
+    assert(test_one("%#.o", 0), "(\"%#.O\", 0)");
+    // assert(test_one("%.o, %.0o", 0, 0), "(\"%.o, %.0o\", 0, 0)");
+    // assert(test_one("%#.o, %#.0o", 0, 0), "(\"%#.o, %#.0o\", 0, 0)");
 
     // "x" option test
     // assert(test_one("%x", 42), "(\"%x\", \"42\")");
@@ -251,10 +256,10 @@ int         main(void)
     // assert(test_one("{%05.c}", 0), "(\"{%05.c}\", 0)");
     // assert(test_one("{%05.Z}", 0), "(\"{%05.Z}\", 0)");
     // assert(test_one("%.4S", L"我是一只猫。"), "(\"%.4S\", L\"我是一只猫。\")");
-    // assert(test_one("{%#.5x}", 1), "(\"{%#.5x}\", 1)");
+    assert(test_one("{%#.5x}", 1), "(\"{%#.5x}\", 1)");
     // assert(test_one("%#.O", 0), "(\"%#.O\", 0)");
     // assert(test_one("%#.o, %#.0o", 0, 0), "(\"%#.o, %#.0o\", 0, 0)");
-    assert(test_one("{%+03d}", 0), "(\"{%+03d}\", 0)");
+    // assert(test_one("{%+03d}", 0), "(\"{%+03d}\", 0)");
 
     free(local);
     return (0);

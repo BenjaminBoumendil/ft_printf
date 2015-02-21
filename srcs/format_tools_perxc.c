@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_tools_perxc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 15:23:19 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:53:05 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/21 17:46:56 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void		opt_per(t_data *data)
 void		opt_x(t_data *data)
 {
 	char	*str;
-	char	*tmp;
 
 	data->flag->plus = 0;
 	if (data->modifier->hh)
@@ -30,9 +29,8 @@ void		opt_x(t_data *data)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_HEX);
 	if (data->flag->sharp && *str != '0')
 	{
-		tmp = str;
-		str = ft_strjoin("0x", str);
-		free(tmp);
+		COUNT_CHAR(2);
+		ft_putstr("0x");
 	}
 	if ((data->precision_called && data->precision == 0)
 		&& (ft_strlen(str) == 1 && str[0] == '0'))
@@ -47,7 +45,6 @@ void		opt_x(t_data *data)
 void		opt_up_x(t_data *data)
 {
 	char	*str;
-	char	*tmp;
 
 	data->flag->plus = 0;
 	if (data->modifier->hh)
@@ -56,9 +53,8 @@ void		opt_up_x(t_data *data)
 		str = ft_ultoa_base(va_arg(*data->va, unsigned long), B_HEXM);
 	if (data->flag->sharp && *str != '0')
 	{
-		tmp = str;
-		str = ft_strjoin("0x", str);
-		free(tmp);
+		COUNT_CHAR(2);
+		ft_putstr("0X");
 	}
 	if ((data->precision_called && data->precision == 0)
 		&& (ft_strlen(str) == 1 && str[0] == '0'))

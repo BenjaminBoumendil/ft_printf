@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/20 19:48:07 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/21 17:19:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ BOOL;
 */
 # define NUMBER_OPT "dDoOuUxXi"
 # define MOST_SIGNIFICANT_BIT_MASK (1 << sizeof(char) * 8)
+
 /*
 ** Flags
 */

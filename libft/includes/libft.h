@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 20:03:04 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/13 21:55:11 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/21 17:20:43 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define B_HEX			"0123456789abcdef"
 # define B_HEXM			"0123456789ABCDEF"
 # define B_OCT			"01234567"
+# define UINT			unsigned int
 
 /*
 ** Standard File descriptors
