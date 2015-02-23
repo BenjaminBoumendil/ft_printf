@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/07 16:37:03 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/21 17:52:20 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/23 14:38:05 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,22 @@ template <class F, class... Args>
 static auto printf_call(const F & f, const char * format, Args... args)
 {
     char buff[BUFF_MAX_SIZE] = {0};
-    // int fds[2];
-    // int saved_stdout;
+    int fds[2];
+    int saved_stdout;
 
-    // fflush(stdout);
-    // pipe(fds);
-    // saved_stdout = dup(STDOUT_FILENO);
-    // dup2(fds[1], STDOUT_FILENO);
-    // close(fds[1]);
+    fflush(stdout);
+    pipe(fds);
+    saved_stdout = dup(STDOUT_FILENO);
+    dup2(fds[1], STDOUT_FILENO);
+    close(fds[1]);
     int ret = f(format, args...);
-    // fflush(stdout);
-    // auto flags = fcntl(fds[0], F_GETFL);
-    // fcntl(fds[0], F_SETFL, flags | O_NONBLOCK);
-    // auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
-    // dup2(saved_stdout, STDOUT_FILENO);
-    // write(1, "BUFF : ", 7);
-    // write(1, buff, read_ret);
+    fflush(stdout);
+    auto flags = fcntl(fds[0], F_GETFL);
+    fcntl(fds[0], F_SETFL, flags | O_NONBLOCK);
+    auto read_ret = read(fds[0], buff, BUFF_MAX_SIZE);
+    dup2(saved_stdout, STDOUT_FILENO);
+    write(1, "BUFF : ", 7);
+    write(1, buff, read_ret);
     std::cout << "\nRET  : " << ret << std::endl;
 
     return std::make_pair(std::string(buff), ret);
@@ -177,7 +177,8 @@ int         main(void)
     // assert(test_one("%p", &str), "(\"%p\", &str)");
     // assert(test_one("%p", &ft_printf), "(\"%p\", &strlen)");
     // assert(test_one("%p", 0), "(\"%p\", 0)");
-    // assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
+    assert(test_one("{%5p}", 0), "(\"{%5p}\", 0)");
+    assert(test_one("{%-15p}", 0), "(\"{%-15p}\", 0)");
     // assert(test_one("% p|%+p", 42, 42), "(\"% p|%+p\", 42, 42)");
 
     // "e" option test
@@ -192,8 +193,8 @@ int         main(void)
     // assert(test_one("%+O", -42), "(\"%+O\", -42)");
     // assert(test_one("%o, %ho, %hho", -42, -42, -42), "(\"%o, %ho, %hho\", -42, -42, -42)");
     // assert(test_one("%#o", 42), "(\"%#o\", 42)");
-    assert(test_one("%#.O", 0), "(\"%#.O\", 0)");
-    assert(test_one("%#.o", 0), "(\"%#.O\", 0)");
+    // assert(test_one("%#.O", 0), "(\"%#.O\", 0)");
+    // assert(test_one("%#.o", 0), "(\"%#.O\", 0)");
     // assert(test_one("%.o, %.0o", 0, 0), "(\"%.o, %.0o\", 0, 0)");
     // assert(test_one("%#.o, %#.0o", 0, 0), "(\"%#.o, %#.0o\", 0, 0)");
 
@@ -256,7 +257,7 @@ int         main(void)
     // assert(test_one("{%05.c}", 0), "(\"{%05.c}\", 0)");
     // assert(test_one("{%05.Z}", 0), "(\"{%05.Z}\", 0)");
     // assert(test_one("%.4S", L"我是一只猫。"), "(\"%.4S\", L\"我是一只猫。\")");
-    assert(test_one("{%#.5x}", 1), "(\"{%#.5x}\", 1)");
+    // assert(test_one("{%#.5x}", 1), "(\"{%#.5x}\", 1)");
     // assert(test_one("%#.O", 0), "(\"%#.O\", 0)");
     // assert(test_one("%#.o, %#.0o", 0, 0), "(\"%#.o, %#.0o\", 0, 0)");
     // assert(test_one("{%+03d}", 0), "(\"{%+03d}\", 0)");

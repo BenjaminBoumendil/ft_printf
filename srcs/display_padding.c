@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 19:03:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/23 13:29:36 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/23 14:36:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static char		*fill_padding_char(char c, size_t min_width, size_t len)
 static void		display_padding(t_data *data, char c, char **str, int rev)
 {
 	char	*save;
+	char	*to_join;
 	size_t	len;
 
 	if (!**str && data->precision_called && ft_strchr("sS", data->opt)
@@ -40,10 +41,12 @@ static void		display_padding(t_data *data, char c, char **str, int rev)
 	if (len < data->min_width)
 	{
 		save = *str;
+		to_join = fill_padding_char(c, data->min_width, len);
 		if (!rev && !data->flag->space)
-			*str = ft_strjoin(fill_padding_char(c, data->min_width, len), *str);
+			*str = ft_strjoin(to_join, *str);
 		else
-			*str = ft_strjoin(*str, fill_padding_char(c, data->min_width, len));
+			*str = ft_strjoin(*str, to_join);
+		free(to_join);
 		free(save);
 	}
 }
