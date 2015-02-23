@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 17:43:14 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/21 17:19:28 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/23 13:38:49 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void			check_for_sign(char **str);
 void			display_null(t_data *data, char c_null);
 void			display_space(t_data *data, char **str);
 void			display_plus(t_data *data, char **str);
+void			number_precision_loop(char **str, size_t precision, size_t len);
 
 /*
 ** Special cases handling

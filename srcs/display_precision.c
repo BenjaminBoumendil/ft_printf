@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 19:01:59 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/20 19:16:17 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/23 13:39:34 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,14 @@ static void		pointer_precision_formatting(size_t precision, char **str)
 
 static void		number_precision_formatting(size_t precision, char **str)
 {
-	char	*new_str;
-	char	*save;
 	size_t	len;
-	size_t	i;
-	size_t	c;
 
-	i = 0;
-	c = 0;
 	if (!ft_strlen(*str))
 		len = 1;
 	else
 		len = (*str[0] == '-') ? ft_strlen(*str) - 1 : ft_strlen(*str);
 	if (len < precision)
-	{
-		save = *str;
-		new_str = (*str[i] == '-') ? ft_memalloc(precision + 2)
-									: ft_memalloc(precision + 1);
-		if (*str[i] == '-')
-		{
-			new_str[i++] = '-';
-			(*str)++;
-		}
-		while (c++ < (precision - len))
-			new_str[i++] = '0';
-		c = 0;
-		while ((*str)[c])
-			new_str[i++] = (*str)[c++];
-		*str = ft_strjoin("", new_str);
-		free(save);
-		free(new_str);
-	}
+		number_precision_loop(str, precision, len);
 }
 
 static void		upcase_s_opt_precision_formatting(size_t precision, char *str)
